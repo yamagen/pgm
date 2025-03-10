@@ -1,7 +1,12 @@
 # Process Grammar Model
 
-## Last change: 2025/02/26-12:12:05.
+## Last change: 2025/03/10-20:26:04.
 
 # License
+
+## Digest
+
+- [PDF-ja](./processDigest-ja.pdf)
+- [PDF-en](./processDigest-en.pdf)
 
 MIT License
