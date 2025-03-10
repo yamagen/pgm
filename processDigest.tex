@@ -1,0 +1,808 @@
+\newif\ifJPN
+\JPNtrue
+\JPNfalse
+
+\ifJPN
+  \documentclass[a4paper,xelatex,ja=standard]{bxjsarticle}
+\else
+  \documentclass[a4paper,xelatex,english,ja=standard]{bxjsarticle}
+\fi
+
+%\setCJKmainfont[BoldFont=HaranoAjiMincho-Bold.otf]{HaranoAjiMincho-Regular.otf}
+%\setCJKsansfont[BoldFont=HaranoAjiGothic-Bold.otf]{HaranoAjiGothic-Regular.otf}
+\setCJKmonofont[BoldFont=HaranoAjiGothic-Bold.otf]{HaranoAjiGothic-Regular.otf}
+
+\usepackage[style=authoryear, backend=biber]{biblatex} % BibLaTeX と Biber を使用
+\addbibresource{koten.bib} % BibTeX ファイルを指定
+\usepackage{tikz}
+\usepackage{version}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{booktabs} % このパッケージを追加
+\usepackage{graphicx}
+\usepackage{standalone}
+\usepackage{url}
+\usepackage{makeidx}
+\usepackage{silence}
+\WarningFilter{latexfont}{Font shape}
+\WarningFilter{latexfont}{Some font shapes}
+\WarningFilter{natbib}{There were undefined citations}
+\WarningFilter{natbib}{Package natbib Warning}
+\usepackage{metalogo} % \XeLaTeX ロゴのため
+\usepackage{fancyvrb}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{listings} % シンプルで効果的なコードリスト表示
+\lstset{
+  language=Python,         % Pythonのシンタックスハイライト
+  frame=t,            % 全体を枠線で囲む
+  basicstyle=\ttfamily\footnotesize, % コードのフォントe定
+  numbers=left,            % 行番号を左に表示
+  numberstyle=\tiny,       % 行番号のフォントを小さくする
+  stepnumber=1,            % 行番号を1行ごとに表示
+  tabsize=4,               % タブのサイズを指定
+  breaklines=true,         % 長い行を自動的に折り返す
+  showstringspaces=false,  % 文字列の空白を表示しない
+  keywordstyle=\color{blue}, % キーワードに色を付ける
+  commentstyle=\color{black}, % コメントに色を付ける
+  stringstyle=\color{red}, % 文字列に色を付ける
+}
+\usepackage{layout}
+%\usepackage{natbib}
+\usepackage{support-caption}
+\usepackage[format=hang,labelsep=colon,margin=10pt,sc,normalsize]{caption}
+%\captionsetup[table]{skip=0pt}
+%\captionsetup[figure]{skip=10pt}
+%\bibpunct[:\,]{(}{)}{,}{a}{}
+
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{makeidx}
+
+\makeindex
+
+\ifJPN
+%\captionsetup[table]{name=表}
+%\captionsetup[figure]{name=図}
+\renewcommand{\refname}{文献}
+\renewcommand{\indexname}{索引}
+\else
+%\captionsetup[table]{name=Table~}
+%\captionsetup[figure]{name=Figure~}
+\renewcommand{\refname}{Reference}
+\renewcommand{\indexname}{Index}
+\fi
+
+\if0
+\newcounter{marginparcnt}[chapter]
+\newcommand{\theMarginparcnt}{$\dagger$\arabic{marginparcnt}}
+\newcommand{\Marginpar}[2][-7pt]{%
+  \stepcounter{marginparcnt}%
+  \textcolor{red}{\textsuperscript{\theMarginparcnt}}%
+  \protect\marginpar{\vskip#1\footnotesize\color{blue}%
+    \textsuperscript{\theMarginparcnt}
+    {#2}\par}}
+  \fi
+
+\ifJPN
+\title{\textbf{プロセス文法モデル\\即時文法と調整文法\\
+\normalsize ダイジェスト版}}
+\author{
+  山元 啓史\\東京科学大学
+%\and
+%  \Large\textbf{ホドシチェク ボル}\\\Large\textbf{大阪大学}
+}
+\else
+\title{Process Grammar Model\\Immediate Grammar and Adjustive Grammar\\\Large Digest Version}
+\author{
+Hilofumi Yamamoto\\Institute of Science Tokyo
+%\and
+%Bor Hodošček\\The University of Osaka
+} 
+\fi
+\date{\today}
+
+\begin{document}
+\maketitle
+
+
+
+\ifJPN
+\section{はじめに}
+\else
+\section{Introduction}
+\fi
+
+\ifJPN
+即時文法は、発話が直感的に選ばれ、迅速に実現される状況に対応する文法である。
+調整文法は、適切性の判断や調整が加えられた発話に用いられる文法である。
+それら、すぐに話さなければならない状況と、じっくり考えて調整して話すという二つの極を持つ言語使用を記述するための枠組みとして、プロセス文法モデルを提案する。
+即時文法は何でもよいからすぐに話しさえすればよいのではなく、これには厳格なルールがある。
+調整文法は適切な言葉を選び、適切な文法を使うことが重要であることには変わりないが、調整の程度(あるいは推敲の程度)により、いくつもの表現方法が存在し、調整過剰というやりすぎ状態が見られる。
+表現の時間軸を考慮したこのモデルは、すべてこれまでの文法研究とは異なるものではなく、これまでの文法研究をさらに発展させるためのフレームワークである。
+\else
+Immediate grammar is a grammar that corresponds to the situation where utterances are intuitively selected and promptly realized.
+Adjustive grammar is a grammar used for utterances with appropriate judgment and adjustive.
+As a framework for describing language use with two extremes, one that must be spoken immediately and one that is spoken after careful consideration and adjustive, we propose a process grammar model.
+Immediate grammar is not just about speaking anything right away, but there are strict rules for this.
+Adjustive grammar is important to choose the right words and use the right grammar, but depending on the degree of adjustive (or the degree of revision), there are several ways of expression, and there is a state of over-adjustment.
+This model, which considers the time axis of expression, is not something completely different from all previous grammar studies, but a framework for further developing previous grammar studies.
+\fi
+
+\ifJPN
+このモデルの特徴は、時間軸を考慮した言語における文法の動的特性を記述することにある。
+\else
+The feature of this model is to describe the dynamic characteristics of grammar in language considering the time axis.
+\fi
+\ifJPN
+言語は物理リソース（脳の認知プロセス、発声、記号操作など）を介して運用されるため、数理的に記述することが可能である。
+しかし、言語は単なる物理的システムではなく、物質を記述する各々のパーツが物理学でいわれる物理量とは性質が異なるため、数理的な記述には困難が伴う。
+物理システム（熱力学、電磁気学など）は通常、決定論的な法則に従う。
+一方、言語は「即時文法」と「調整文法」のように、非決定論的な要素を含む。
+特に、言語には文脈依存性、意味構造、認知プロセスの影響が含まれ、単純な数理モデルでは完全に説明できない。
+それゆえ、言語の数理的記述は、物理的リソースを基盤としつつも、動的な変化や意思決定プロセスを考慮する必要がある。
+たとえば、発話のリアルタイム生成（即時文法） は、決定論的な法則で完全に予測することが困難であるため、相対的に捉え、二項対立のように常に比較すべき対を示す。
+たとえば、意味の曖昧性（例:「娘がいる」はmy daughter なのか、a girl なのか）や、文脈依存性（例:「彼女は彼に会った」は、she met him なのか、he met her なのか）などは、数理的には解決が難しい。
+これらの問題点について放置するわけにもいかないし、統計的確率論として扱うわけにもいかない。
+しかしながら、時間軸を考慮した言語の数理モデルは、未解決であったこれらの問題に対して、新たなアプローチを提供する可能性がある。
+たとえば、即時文法であるならば、発話のリアルタイム生成を考慮し、my daughter/a girl という問題は、発話の前後関係によって解決される。
+また、調整文法であるならば、文脈依存性を考慮し、she met him/he met her という曖昧性の問題は、調整の過程によって語句を追加すること解決される。
+    \else
+    Language is operated through physical resources (cognitive processes of the brain, speech, symbol manipulation, etc.), making it possible to describe it mathematically.
+However, language is not just a physical system, and each part that describes matter has different properties from the physical quantities described in physics, making mathematical descriptions difficult.
+Physical systems (thermodynamics, electromagnetism, etc.) usually follow deterministic laws.
+On the other hand, language contains non-deterministic elements such as ``immediate grammar'' and ``adjustment grammar.''
+In particular, language includes context dependency, semantic structure, and cognitive process influences, which cannot be fully explained by simple mathematical models.
+Therefore, a mathematical description of language must consider dynamic changes and decision-making processes while being based on physical resources.
+For example, real-time generation of speech (immediate grammar) is difficult to predict completely with deterministic laws, so it should be relatively understood and always show pairs to be compared like a binary opposition.
+For example, semantic ambiguity (e.g., ``She has a daughter'' is it my daughter or a girl?) and context dependency (e.g., ``She met him'' is it she met him or he met her?) are difficult to resolve mathematically.
+These problems cannot be ignored, nor can they be simply addressed by statistical probability theory.
+However, a mathematical model of language that considers the time axis may offer a new approach to these unresolved issues.
+For example, if it is immediate grammar, considering the real-time generation of speech, the problem of my daughter or a girl is resolved by the relationship before and after the speech.
+Also, if it falls under adjustment grammar, considering context dependency, the problem of ambiguity between she met him and he met her is resolved by adding words during the adjustment process.
+    \fi
+
+\ifJPN
+\section{理論的背景}
+\else
+\section{Theoretical Background}
+\fi
+
+\ifJPN
+  \subsection{二重過程理論との関連}
+\else
+  \subsection{Relation to Dual Process Theory}
+\fi
+
+\begin{figure}[htb]\centering\small
+\includegraphics[width=0.45\textwidth]{./figures/fastslow01.pdf} 
+\ifJPN
+  \caption{二重過程理論 \href{https://thedecisionlab.com/reference-guide/philosophy/system-1-and-system-2-thinking}{``System 1 and System 2 Thinking''}より}\label{fig:fastslow01}
+\else
+  \caption{Dual processing theory based on the presentation from \href{https://thedecisionlab.com/reference-guide/philosophy/system-1-and-system-2-thinking}{``System 1 and System 2 Thinking''}}\label{fig:fastslow01}
+\fi
+\end{figure}
+
+
+\ifJPN
+プロセス文法モデルは、二重過程理論に言われる「システム1（速い思考）とシステム2（遅い思考）」の枠組みに類似する。しかし、本モデルは単なる応用ではなく、即時性と調整性に焦点を当てた独自の視点を持つ\autocite{Evans2008, Kahneman2011-KAHTFA-2,squire2009memory}。
+\else
+The Process Grammar Model is similar to the framework of ``System 1 (fast thinking) and System 2 (slow thinking)'' refered as the Dual Process Theory. However, this model has a unique perspective focusing on immediacy and adjustability, rather than being a mere application.\autocite{Evans2008, Kahneman2011-KAHTFA-2,squire2009memory}
+\fi
+
+\ifJPN
+  \subsection{「話しことば」「書きことば」という言い方を改める}
+\else
+  \subsection{Limitation of ``spoken language'' and ``written language''}
+\fi
+
+\ifJPN
+従来の言語学では、「話しことばは即時性が高く、書きことばは推敲可能である」とされてきた。しかし、SNSやライブ配信では「書きながら話す」状況が増えており、単純な二分法では説明できない。
+こうした現象を整理し、表面上の行為を言語形式として呼ぶことを止め、言語使用のメカニズムを説明するための枠組みとしてプロセス文法モデルという名称を提案するものである。
+\else
+In traditional linguistics, it has been said that ``spoken language has high immediacy and written language is revisable.'' However, in SNS and live streaming, the situation of ``speaking while writing'' is increasing, and it cannot be explained by a simple binary opposition.
+This study proposes the name ``Process Grammar Model'' as a framework to explain the mechanism of language use, rather than calling surface acts as language forms, to organize such phenomena.
+\fi
+
+\ifJPN
+  \section{即時文法と調整文法}
+\else
+  \section{Immediate Grammar and Adjustive Grammar}
+\fi
+
+
+
+\ifJPN
+  \begin{table}[htb]\centering\small
+  \caption{即時文法 vs 調整文法の対比}\label{tab:immediate-vs-adjustive}
+  \begin{tabular}[c]{lll}\noalign{\hrule height .8pt}
+  カテゴリ   & 即時文法  & 調整文法\\ \hline
+  名詞止め   & ちょうど今、カレーうどん、できたところ。&カレーうどんがちょうど今、できたところです。\\
+             & いわば、音楽でいうと楽譜。& これは、音楽における楽譜に相当します。\\
+             & 午後は、雨。& 午後は、雨です。\\
+             & お昼は、マクドナルドで。& お昼は、マクドナルドで食べます。\\
+             & 図書館で、勉強。& 今日は、図書館で勉強します。\\
+  重要語が先 & どうですか、私の説明は？& 私の説明は、適切に伝わっていますでしょうか？\\
+  副詞のみ& 確かに。&確かに、その指摘は妥当です。\\
+  指示詞のみ& これが、こうなる。&	この要素が、このように変化します。\\
+    \end{tabular}
+\end{table}
+\else
+\begin{table}[htb]\centering\small
+  \caption{Comparison of Immediate Grammar and Adjustive Grammar}
+  \label{tab:immediate-vs-adjustive}
+  \begin{tabular}[c]{lll}\noalign{\hrule height .8pt}
+    & Immediate Grammar & Adjustive Grammar \\ \hline
+    Nouns, noun phrases only&
+    Just now, curry udon, done.	&The curry udon has just been completed.\\
+                                &
+    So to speak, like music notation.	&This corresponds to music notation.\\
+    Omitting ``wa'' particle&
+    How about my explanation?	&Is my explanation being conveyed properly?\\
+    Adverbs only&
+    Certainly.	&Certainly, that point is valid.\\
+    Demonstratives only&
+    This becomes like this.	&This element changes like this.\\
+  \end{tabular}
+\end{table}
+\fi
+
+\ifJPN
+即時文法は短く、リアルタイム性が高い。最小限の単位で成立する。
+従来は文として見做されないとされてきたが、このような形式は、SNSやライブ配信などでより一層、顕著に、そして広く使われている。
+調整文法は文の構造が明確で、推敲が可能な文法である。
+
+即時文法の実在性を確認するには、一般的に文と呼ばれるものを短くし、目の前の人に対して、短く発話できるとき、その形式を捉え、「名詞止め」「副詞のみ」などの命名で分類すると、その特徴的なルールが見えてくることだろう。
+ここでは、即時文法と調整文法の特徴を端的に示すために、両者の対比を表\ref{tab:immediate-vs-adjustive}に示す。
+\else
+Immediate grammar is short and has high real-time characteristics. It is established in the smallest unit.
+Traditionally, it has not been considered as a sentence, but such forms are more prominent and widely used in SNS and live streaming.
+Adjustive grammar has a clear sentence structure and is a grammar that can be revised.
+
+To confirm the existence of immediate grammar, it is generally necessary to shorten what is commonly called a sentence and capture the form when it can be spoken briefly to the person in front of you, classifying it with names such as ``noun stop'' and ``adverbs only'' to reveal its characteristic rules.
+Here, to succinctly show the characteristics of immediate grammar and adjustive grammar, the comparison of the two is shown in Table \ref{tab:immediate-vs-adjustive}.
+\fi
+
+\ifJPN
+  \subsection{即時文法（Immediate Grammar）}
+\else
+  \subsection{Immediate Grammar}
+\fi
+
+\ifJPN
+  \begin{description}
+   \item[特徴:] 瞬時の発話、省略が多い、文脈依存、リアルタイム処理
+\item[例:] 「どうですか、味？」「あ、見て！あれ」「あぶない」「普通が一番」
+\item[適用場面:] 日常会話、あいづち、緊急時の発話
+  \end{description}
+\else
+  \begin{description}
+    \item[Characteristics:] Instantaneous speech, frequent omissions, context-dependent, real-time processing
+    \item[Examples:] ``How's the taste?,'' ``Look!,'' ``Watch out!,'' ``Ordinary is the best''
+    \item[Application:] Everyday conversation, interjections, emergency speech
+  \end{description}
+\fi
+
+\ifJPN
+  \subsection{調整文法（Adjustive Grammar）}
+\else
+  \subsection{Adjustive Grammar}
+\fi
+
+\ifJPN
+  \begin{description}
+    \item[特徴:] 慎重な選択、文法的に整った構造、推敲を経る
+    \item[例:] 「この研究の結果から考察すると...」「誠にありがとうございます」
+    \item[適用場面:] 公式スピーチ、論文、公文書
+  \end{description}
+\else
+  \begin{description}
+    \item[Characteristics:] Careful selection, grammatically correct structure, revision
+    \item[Examples:] ``Based on the results of this study...,'' ``Thank you very much''
+    \item[Application:] Formal speeches, papers, official documents
+  \end{description}
+\fi
+
+\ifJPN
+\subsection{定義の厳格化}
+\else
+\subsection{Strict Definition}
+\fi
+
+\ifJPN
+即時文法と調整文法それぞれの基本的な定義と特徴を強調し、異なる観点からアプローチすることを明確にすることが重要である。
+たとえば、即時文法は「その場で反応的に発話が生成されるプロセス」、調整文法は「言語的な適応や修正を行うプロセス」と捉えれば、フォーカスする側面が異なることがわかりやすい。
+即時文法の特徴は「即時的で反射的な選択」であり、調整文法の特徴は「意図的な修正や確認」であり、両者は論理的に区別される側面がある。
+\else
+It is important to emphasize the basic definitions and characteristics of immediate grammar and adjustive grammar, and to approach them from different perspectives.
+For example, if immediate grammar is understood as ``a process in which speech is generated reactively on the spot'' and adjustive grammar is understood as ``a process of linguistic adaptation and correction,'' it is easy to understand that the focus is different.
+The characteristic of immediate grammar is ``immediate and reflexive selection,'' and the characteristic of adjustive grammar is ``intentional correction and confirmation,'' and there are logically distinguishable aspects between the two.
+\fi
+
+\ifJPN
+  \section{概念図}% 20250303
+\else
+  \section{Concept Diagram}% 20250303
+\fi
+
+\ifJPN
+ここではプロセス文法モデル全体を見渡すと同時に即時文法と調整文法の関係を示す概念図を示す(図\ref{fig:boundary})。
+\else 
+  Here, we show a concept diagram that shows the relationship between immediate grammar and adjustive grammar while looking at the entire Process Grammar Model (Figure \ref{fig:boundary}).
+\fi
+
+
+
+\begin{figure}[htb]\centering\small
+\begin{tikzpicture}[node distance=35mm]\small
+    % 時間軸
+  \ifJPN
+    \draw[thick,->,>=stealth,line width=.3mm] (0,0) -- (14,0) node[anchor=north] {時間（Time）};
+  \else
+    \draw[thick,->,>=stealth,line width=.3mm] (0,0) -- (14,0) node[anchor=north] {Time};
+  \fi
+
+    % 上：即時文法の適用範囲（破線）
+    \draw[thick,draw=red] (2.05,.08) -- (6.95,.08);
+    % 下：調整文法の適用範囲（細い実線）
+    \draw[thick,draw=blue] (7.05,-.08) -- (11.95,-.08);
+
+    % 限界のノード（斜め配置・改行対応）
+  \ifJPN
+    \node[rotate=0, anchor=south] at (2,1) 
+      {\parbox{4cm}{\centering 前限界 \\ Pre-boundary}};
+  \else
+    \node[rotate=0, anchor=south] at (2,1.5) 
+      {\parbox{4cm}{\centering Pre-boundary}};
+  \fi
+
+  \ifJPN
+    \node[rotate=0, anchor=south] at (7,1) 
+      {\parbox{4cm}{\centering 後限界 \\ =調整文法の前限界 \\ Post-boundary}};
+  \else
+    \node[rotate=0, anchor=south] at (7,1.5) 
+      {\parbox{4cm}{\centering Post-boundary \\ =Pre-boundary of Adjustive Grammar}};
+  \fi
+
+  \ifJPN
+    \node[rotate=0, anchor=south] at (12,1) 
+      {\parbox{4cm}{\centering 調整文法の後限界 \\ =調整飽和点 \\ Saturation Point}};
+  \else
+    \node[rotate=0, anchor=south] at (12,1.5) 
+      {\parbox{5.5cm}{\centering Post-boundary of Adjustive Grammar \\ =Adjustive Saturation Point}};
+  \fi
+
+    % 範囲のラベル
+  \ifJPN
+    \node at (4.5,.6){\parbox{34mm}{\centering 即時文法の適用範囲 \\ Immediate Grammar}};
+  \else
+    \node at (4.5,.6){\parbox{34mm}{\centering Application Range of Immediate Grammar}};
+  \fi
+
+  \ifJPN
+    \node at (9.5,.6){\parbox{34mm}{\centering 調整文法の適用範囲 \\ Adjustive Grammar}};
+  \else
+    \node at (9.5,.6){\parbox{34mm}{\centering Application Range of Adjustive Grammar}};
+  \fi
+
+    % フェーズの区切り（縦破線）
+  \ifJPN
+    \draw[dashed,<-,>=stealth,line width=.3mm] ( 2,.16) -- ( 2,1.0);
+    \draw[dashed,<-,>=stealth,line width=.3mm] ( 7,.16) -- ( 7,1.0);
+    \draw[dashed,<-,>=stealth,line width=.3mm] (12,.03) -- (12,1.0);
+  \else
+    \draw[dashed,<-,>=stealth,line width=.3mm] ( 2,.16) -- ( 2,1.5);
+    \draw[dashed,<-,>=stealth,line width=.3mm] ( 7,.16) -- ( 7,1.5);
+    \draw[dashed,<-,>=stealth,line width=.3mm] (12,.03) -- (12,1.5);
+  \fi
+
+
+% 時間軸上にマーカーを追加
+\fill (2,.08) circle (2pt);  % 前限界（黒丸）
+\draw[fill=white] (7,.08) circle (2pt);  % 後限界（白丸 = 即時文法にとって）
+\fill (7,-.08) circle (2pt);  % 後限界（黒丸 = 調整文法にとって）
+\fill (12,-.08) circle (2pt); % 調整飽和点（黒丸）
+
+\end{tikzpicture}
+\ifJPN
+\caption{即時文法と調整文法の限界}\label{fig:boundary}
+\else
+\caption{Boundary between Immediate Grammar and Adjustive Grammar}\label{fig:boundary}
+\fi
+\end{figure}
+
+
+%\begin{figure}[htb]\centering\small
+%    \includegraphics[width=0.95\textwidth]{boundary.pdf}
+%    \caption{即時文法と調整文法の限界}\label{fig:boundary}
+%\end{figure}
+
+\ifJPN
+\subsection{即時文法の前限界と後限界の定義}
+\else
+\subsection{Definition of Pre-boundary and Post-boundary of Immediate Grammar}
+\fi
+
+\ifJPN
+前限界（Pre-boundary）は、即時文法の適用が始まる点であり、発話の開始時点を示す。  
+即時文法の適用範囲は、前限界から後限界までの区間である。  
+\else
+The Pre-boundary is the point at which the application of immediate grammar begins, indicating the start of speech.
+The application range of immediate grammar is the interval from the Pre-boundary to the Post-boundary.
+\fi
+
+\ifJPN
+後限界（Post-boundary）は、即時文法の適用範囲の終わりを示し、調整文法の前限界と一致する。  
+この点を超えると、発話や文章は即時文法ではなく、調整文法の枠組みの中で処理される。  
+\else
+The Post-boundary indicates the end of the application range of immediate grammar, coinciding with the Pre-boundary of adjustive grammar.
+Beyond this point, speech or text is processed not by immediate grammar but within the framework of adjustive grammar.
+\fi
+
+\ifJPN
+\subsection{調整文法の適用範囲と調整飽和点}
+\else
+\subsection{Application Range of Adjustive Grammar and Adjustive Saturation Point}
+\fi
+
+\ifJPN
+調整文法の前限界（Pre-boundary）は、調整文法の適用が始まる点を示す。  
+調整文法は、ある量の時間をかけて発話や文章を推敲・修正する際に適用される。  
+\else
+The Pre-boundary of adjustive grammar indicates the point at which the application of adjustive grammar begins.
+Adjustive grammar is applied when a certain amount of time is spent revising and correcting speech or text.
+\fi
+
+\ifJPN
+調整文法の後限界（Post-boundary）は、ある一定の調整を行った後、それ以上の改善が見込めなくなる点を指す。  
+この点を調整飽和点（Saturation Point）と呼び、調整文法の適用範囲の終わりを示す。
+\else
+The Post-boundary of adjustive grammar indicates the point at which further improvement is no longer expected after a certain amount of adjustment.
+This point is called the adjustive saturation point, indicating the end of the application range of adjustive grammar.
+\fi
+
+\ifJPN
+\subsection{即時文法と調整文法の境界}
+\else
+\subsection{Boundary between Immediate Grammar and Adjustive Grammar}
+\fi
+
+\ifJPN
+即時文法と調整文法の境界の境界は存在するが、固定的な境界はない。
+調整されたものを何回もリハーサルする、暗記する、マニュアル化として固定化するなどのプロセスを経ることで、発話は「熟練」される。
+「熟練」された表現は、即時的に発話されることもある。
+これは、即時文法と調整文法の連続的な関係を示すものである。
+即時文法（システム1）と調整文法（システム2）は、それぞれ固定的に分かれているのではなく、
+「熟練」あるいは「経験」によって相互に影響を与えることが「連続体」設定の理由である。
+このように発話は、即時文法と調整文法の間を移行する可能性がある。
+\else
+There is a boundary between immediate grammar and adjustive grammar, but there is no fixed boundary.
+Speech is ``skilled'' by going through processes such as rehearsing adjusted things many times, memorizing them, and fixing them as manuals.
+``Skilled'' expressions are sometimes spoken immediately.
+This shows the continuous relationship between immediate grammar and adjustive grammar.
+Immediate grammar (System 1) and adjustive grammar (System 2) are not fixedly separated, but are set as a ``continuum'' because they mutually influence each other through ``skill'' or ``experience.''
+In this way, speech may transition between immediate grammar and adjustive grammar.
+\fi
+
+\ifJPN
+プロセス文法モデルでは「即時文法」は直感的・瞬発的な発話を、「調整文法」は意識的・分析的な発話を扱うが、熟練することで調整文法の要素が即時文法の領域に移行する。
+これはプロセス文法モデルが「動的なモデル」であることの例である。
+システム2の処理がシステム1へ移行する現象は、時間的に変化するプロセスの一環として捉えることができる。
+これは固定的な文法ではなく「プロセス（過程）」というモデルであることを示している。
+%プロセスの意味、認知プロセス、プロセス・チーズ
+\else
+In the Process Grammar Model, ``immediate grammar'' deals with intuitive and instantaneous speech, and ``adjustive grammar'' deals with conscious and analytical speech, but by mastering it, elements of adjustive grammar transition to the domain of immediate grammar.
+This is an example of the Process Grammar Model being a ``dynamic model.''
+The phenomenon of the processing of System 2 transitioning to System 1 can be seen as part of a process that changes over time.
+This shows that it is a model of ``process'' rather than a fixed grammar.
+\fi
+
+\ifJPN
+  \subsection{即時文法と調整文法の連続体}
+\else
+  \subsection{Continuum of Immediate Grammar and Adjustive Grammar}
+\fi
+
+\ifJPN
+即時文法と調整文法は、単純な二分法ではなく、状況や経験に応じて移行可能な「連続体」を形成している。
+たとえば、語学学習において初学者が文を作る際には調整文法（システム2）を用いるが、訓練によって頻繁に使用するパターンが即時的に出力可能となると、即時文法（システム1）へと移行する。
+このような熟練のプロセスにより、システム1とシステム2の間で処理の役割分担が変化する。
+したがって、本来なら、システム1とシステム2のそれぞれが担当すべき処理が自動化され、時にシステム2の処理がシステム1の処理として機能することがある。
+この現象こそが、プロセス文法モデルにおける「連続体」の本質であり、即時文法と調整文法の相補的かつ不可分的な関係を示すものである。
+\else
+Immediate grammar and adjustive grammar form a ``continuum'' that can transition depending on the situation and experience, rather than a simple binary opposition.
+For example, in language learning, when beginners create sentences, they use adjustive grammar (System 2), but with training, patterns that are frequently used can be output immediately, transitioning to immediate grammar (System 1).
+Through such a process of mastery, the roles of processing change between System 1 and System 2.
+Therefore, the roles of processing that each of System 1 and System 2 should be responsible for are automated, and sometimes the processing of System 2 functions as the processing of System 1.
+This phenomenon is the essence of the ``continuum'' in the Process Grammar Model, showing the complementary and inseparable relationship between immediate grammar and adjustive grammar.
+\fi
+
+\ifJPN
+ただし、即時文法と調整文法のフォーマットは、それらを両極とした異なるものである。
+実際の言語使用ではそれらが相互作用することが多いため、連続体とすることには意味がある。
+特に、即時的な反応（たとえば、会話の流れの中で瞬時に行われる発話の選択）と、
+それに続く調整（たとえば、発話の修正や情報の確認）がしばしば連動している場合がある。
+また、即時文法が言語使用の瞬間的な側面に焦点を当てるのに対し、
+調整文法は言語の適応的な側面や調整過程に焦点を当てる。
+これらを統一的に扱うフォーマットを用意することで、
+言語使用のダイナミズムをより明確に示すことができそうであるが、
+これには結果的に即時文法と調整文法の概念規定をゆさぶる可能性もあるため、
+両者が似通ったものにならないように予防的なロジックを装備する必要がある。
+\else
+However, the formats of immediate grammar and adjustive grammar are different, with them being at opposite poles.
+In actual language use, it is meaningful to consider them as a continuum because they often interact.
+In particular, immediate responses (e.g., the selection of utterances made instantaneously in the flow of conversation) and the subsequent adjustment (e.g., the correction of utterances and the confirmation of information) are often interrelated.
+While immediate grammar focuses on the instantaneous aspects of language use, adjustive grammar focuses on the adaptive aspects of language and the adjustment process.
+By preparing a format that treats these uniformly, it seems possible to more clearly show the dynamics of language use.
+However, this may ultimately shake the conceptual definitions of immediate grammar and adjustive grammar, so it is necessary to equip a preventive logic to ensure that they do not become too similar.
+\fi
+
+\ifJPN
+速い処理はシステム2の過程ではなくシステム1の使用とされてはいるが、それはシステム1由来ではなく、経験や種々なるヒューリスティックによる技術がシステム2により熟成し、早い処理に転生することもありうる\autocite{Evans2008}。
+本来熟考しなければならない問題に対しても、訓練や反復再生を繰り返す経験を通してシステム1による処理になることが多々見られる。
+たとえば、語学において、本来は即座にできない文構築に慣れてくれば即座に使えるようになる。
+このような場合、熟達後はシステム1が使われていると考えられる。
+一方、新しい言葉や複雑な手順を説明をする場合には、誤解を排除するために、システム2が使われることだろう。
+\else
+  Fast processing is considered to be the use of System 1 rather than the process of System 2, but it is not derived from System 1, and the techniques developed by System 2 through experience and various heuristics can mature and be reborn as fast processing.\autocite{Evans2008}
+Even for problems that should be carefully considered, it is often seen that processing by System 1 is used through experience of training and repeated playback.
+For example, in language learning, if you get used to constructing sentences that you cannot do immediately, you will be able to use them immediately.
+In such cases, it is considered that System 1 is used after mastery.
+On the other hand, when explaining new words or complex procedures, System 2 is likely to be used to eliminate misunderstandings.
+\fi
+
+\ifJPN
+\section{記述の方法}
+\else
+\section{Description Method}
+\fi
+
+\ifJPN
+\subsection{適切なフォーマットの設計}
+\else
+\subsection{Design of Appropriate Format}
+\fi
+
+\ifJPN
+即時文法と調整文法を関係づける際には、それぞれが担う役割を反映したフォーマットをデザインする。
+このフォーマットでは、各プロセスがどのタイミングでどのように発動するかを示す「プロセスのフロー」を明確に示す。
+たとえば、即時文法では「反応的発話」の発生時点を明記し、その後に調整文法が適用される「修正」や「確認」のタイミングを示すことによって、異なるフォーマットを維持しつつ、両者の補完を視覚的に表現できる。
+\else
+When linking immediate grammar and adjustive grammar, design a format that reflects the roles they play.
+In this format, clearly show the ``flow of processes'' that indicates when and how each process is triggered.
+For example, in immediate grammar, clearly indicate the timing of the occurrence of ``reactive speech,'' and by indicating the timing of ``correction'' and ``confirmation'' to be applied later, it is possible to visually express the complementarity of the two while maintaining different formats.
+\fi
+
+\ifJPN
+\subsection{区別のメタレベルでの検討}
+\else
+\subsection{Consideration at the Meta-level of Distinction}
+\fi
+  
+\ifJPN
+即時文法と調整文法は一見するとつながっているように見えるかもしれないが、実はそれぞれが異なる認知的・社会的な機能を持つ。
+この点において両者が異なる状況や認知負荷の下で機能するかどうかを観察することが課題である。
+たとえば、即時文法が「認知的な即時反応」を、調整文法が「複雑な言語調整を伴う認知過程」を反映しているならば、それぞれの理論的枠組みを区別するロジックが自ずと確立できよう。
+\else
+Although immediate grammar and adjustive grammar may seem to be connected at first glance, they actually have different cognitive and social functions.
+It is a challenge to observe whether they function under different situations and cognitive loads.
+For example, if immediate grammar reflects ``cognitive immediate responses'' and adjustive grammar reflects ``cognitive processes involving complex language adjustments,'' the logic to distinguish between the two theoretical frameworks will naturally be established.
+\fi
+
+\ifJPN
+\subsection{実証的データによる区別の確認}
+\else
+\subsection{Confirmation of Distinction by Empirical Data}
+\fi
+
+\ifJPN
+理論を実証的に支えるデータを集める目的は、即時文法と調整文法が異なる文脈や使用場面での具体的な発話例からシステムを構築することである。
+即時文法と調整文法の両者の特徴を実例で、実際に次元分けしたマップ上にピン止めするなどして固定し、概念化の助けにすることで両極が実在性することを示し、その上にプロセス文法が横たわっていることを示す。
+実際の会話や言語データを分析し、即時的な反応と時間を要する調整の区別、またはそれらのタイミングにより、両極が曖昧になるのかどうかを確認することで、具体的に両極を整理する。
+\else
+The purpose of collecting data to empirically support the theory is to build a system from specific speech examples in different contexts and usage situations of immediate grammar and adjustive grammar.
+By pinning down the characteristics of both immediate grammar and adjustive grammar on a map divided into dimensions with actual examples, it is possible to show that both poles exist and that the process grammar lies on top of them.
+By analyzing actual conversations and language data, it is possible to confirm whether the distinction between immediate responses and time-consuming adjustments, or the timing of these, makes the two poles ambiguous, and to organize them concretely.
+\fi
+
+\ifJPN
+関係づける方法としては、即時文法のフォーマットにおける「反応的な要素」を調整文法のフォーマットにおける「調整過程」とのリンクの方法を提案することが一つのアプローチになる。
+両極を取り持つ実際的なデータをモデルとして位置付けることで、言語の使用における「即時性」と「調整性」が相互作用するモデルのパラメタを指定できれば、相対的な発話・表現の連続体モデルが作成できると考える。
+\else
+One approach is to propose a method of linking the ``reactive elements'' in the format of immediate grammar with the ``adjustment process'' in the format of adjustive grammar.
+By positioning actual data that mediates both poles as a model, it is possible to specify the parameters of a model in which ``immediacy'' and ``adjustability'' in language use interact, and to create a model of a continuum of relative speech and expressions.
+\fi
+
+%- 両極の特徴を説明。
+%  - 即時文法の特徴: 緊急性、直感的反応（例: 「危ない！」）。
+%  - 調整文法の特徴: 慎重な推敲、フォーマルな場面での使用（例: スピーチ）。
+%- 中間的な状況やグラデーションを含めたモデルを提案。
+%  - 日常会話の中での即時的発話と調整的発話の組み合わせ。
+%  - 例えば、初対面の相手への対応では即時性と調整性が同時に求められる。
+%- 視覚化（図や表）を活用。
+%  - モデルのグラフやフローチャート。
+%  - 即時性から調整性への連続体を示す視覚的表現。
+
+
+% 補足の提案
+% 
+% 1. 定義の明確化  
+%    「調整」が形式に限定されることを強調する際、具体的な例を挙げると読者の理解が深まります（例: 丁寧表現の選択、文法的再構成）。
+% 
+% 2. 視覚化の内容を事前に予告
+%    視覚化が含まれることは非常に良いですが、図や表の具体的な形式（連続体のスペクトラムや事例比較表など）を明記すると、期待感が高まります。
+% 
+% 3. 各セクションの間のつながり
+%    「定義」と「モデル」のセクションが緊密に関連していることを示すために、「モデル提案」が定義を基に構築されている旨を冒頭で簡単に述べるのが効果的です。
+
+
+% \begin{figure}[ht]\centering
+%     \includegraphics[width=0.7\textwidth]{processimage.pdf}
+%     \caption{
+%       Process grammar model of actual language use: 
+%       continuum of immediate and adjusted grammars
+%     }
+%     \label{fig:processgrammar}
+% \end{figure}
+
+\begin{figure*}[ht]\centering\small
+\begin{tikzpicture}[scale=.8, every node/.style={align=center, font=\small}]
+\draw[thick] (0,0) rectangle (10,4);
+\draw[thick, dashed] (0,0) -- (10,4);
+\fill[blue!20, opacity=0.6] (0,0) -- (10,4) -- (0,4) -- cycle; % Upper triangle for 即時文法
+\fill[red!20, opacity=0.6] (0,0) -- (10,4) -- (10,0) -- cycle; % Lower triangle for 調整文法
+\ifJPN
+  \node[above left] at (4,2.5) {即時文法};
+  \node[below right] at (6,1.5) {調整文法};
+  \node[above right] at (4,1.6) {連続体};
+  \node[above left] at (0,1.5) {高い\\即時性};
+  \node[below right] at (10,2.5) {高い\\調整性};
+\else
+  \node[above left] at (4.2,2.5) {Immediate Grammar};
+  \node[below right] at (6,1.5) {Adjustive Grammar};
+  \node[above right] at (3.5,1.6) {Continuum};
+  \node[above left] at (0,1.5) {High\\Immediacy};
+  \node[below right] at (10,2.5) {High\\Adjustability};
+\fi
+\end{tikzpicture}
+
+\ifJPN
+\caption{実際の言語使用のプロセス文法モデル：即時性と調整性の連続体}
+\else
+\caption{Process grammar model of actual language use}
+\fi
+\label{fig:processgrammar}
+\end{figure*}
+
+\begin{table*}[ht]\centering\small
+\ifJPN
+\caption{即時文法と調整文法の特徴}
+\else
+\caption{Characteristics of immediate and adjustment grammars}
+\fi
+\label{tab:characteristics}
+\ifJPN
+\begin{tabular}{lp{4.5cm}p{8.5cm}}\noalign{\hrule height .8pt}
+\textbf{項目} 
+  & \textbf{即時文法}
+  & \textbf{調整文法} \\ \hline
+
+\textbf{特徴} 
+  & その場で瞬間的に適用される文法。
+  & 言語形式が適切かを検討し、必要に応じて修正・調整を行う文法。 \\ 
+
+\textbf{時間幅} 
+  & ミリ秒から数秒で処理される。 
+  & 数秒から数年まで、長い時間をかけて調整される場合もある。 \\ 
+
+\textbf{具体例} 
+  & 反射的な応答、自然発生的な会話。 
+  & 記者会見の応答（調整を伴う場合）、スピーチ、法律文書の推敲。 \\ 
+
+\textbf{調整の要素} 
+  & 微小の調整、無意識的な調整のみ。 
+  & 言語形式に関する意識的な調整が加えられる。 \\ 
+
+\textbf{目的} 
+  & 即座に情報を伝える。 
+  & 誤解を防ぎ、正確性や適切さを確保する。 \\
+\else
+  \begin{tabular}{p{32mm}p{53mm}p{60mm}}\noalign{\hrule height .8pt}
+%  & \textbf{Immediate Grammar} & \textbf{Adjustment Grammar} \\
+
+  \textbf{Item} 
+  & \textbf{Immediate Grammar} 
+  & \textbf{Adjustive Grammar} \\ \hline
+
+  \textbf{Characteristics} 
+  & Grammar applied instantaneously on the spot. Little consideration or modification of form. 
+  & Grammar that considers the appropriateness of linguistic forms and makes adjustments as needed. \\
+
+  \textbf{Time Span} 
+  & Milliseconds to seconds. Processed in real-time. 
+  & Seconds to years. Adjustments may take a long time. \\
+
+  \textbf{Examples} 
+  & Reflexive responses, spontaneous conversations. 
+  & Press conference responses (with adjustments), speeches, editing of legal documents. \\
+
+  \textbf{Adjustive Elements} 
+  & Minimal or unconscious adjustments only. 
+  & Conscious adjustments to linguistic forms. \\
+
+  \textbf{Purpose} 
+  & Immediate information delivery. 
+  & Preventing misunderstandings and ensuring accuracy and appropriateness. \\
+\fi
+
+\end{tabular}
+\end{table*}
+
+
+
+
+\ifJPN
+  \section{今後の展開}
+\else
+  \section{Future Directions}
+\fi
+
+\ifJPN
+  \subsection{研究課題}
+\else
+  \subsection{Research Questions}
+\fi
+
+\begin{itemize}
+  \item 
+\ifJPN
+即時文法と調整文法の境界とその定式化（前限界・後限界の数式化）
+\else
+The boundary between Immediate Grammar and Adjustive Grammar and its formalization (formulation of pre-boundary and post-boundary)
+\fi
+
+  \item 
+\ifJPN
+実証データの収集と分析（会話データ、書きことばデータの比較）
+\else
+Collection and analysis of empirical data (comparison of conversation data and written data)
+\fi
+\end{itemize}
+
+\ifJPN
+  \subsection{アップデートの方針}
+\else
+  \subsection{Update Policy}
+\fi
+
+\ifJPN
+ルールベースの整理と追加
+\else
+Organizing and adding rules
+\fi
+\ifJPN
+言語教育やAI（自然言語処理）への応用
+\else
+Application to language education and AI (natural language processing)
+\fi
+\ifJPN
+和歌や歴史的な文献を対象にした分析を検討していく。
+\else
+Consideration of analysis targeting waka and historical literature.
+\fi
+
+\ifJPN
+  \section{おわりに}
+\else
+  \section{Conclusion}
+\fi
+
+\ifJPN
+本ダイジェストでは、プロセス文法モデルの概要、即時文法と調整文法の対比、理論的背景を示した。今後のアップデートでは、ルールベースの整理やデータ分析を拡充し、さらなる発展を目指す。
+\else
+In this digest, we have outlined the Process Grammar Model, compared Immediate Grammar and Adjustive Grammar, and discussed the theoretical background. In future updates, we will expand the rule base and data analysis to further develop the model.
+\fi
+
+
+\printbibliography
+\end{document}
