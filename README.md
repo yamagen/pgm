@@ -1,6 +1,9 @@
 # Process Grammar Model
 
-## Last change: 2025/03/10-20:26:04.
+Hilofumi Yamamoto, Ph.D.
+Institure of Science Tokyo
+
+## Last change: 2025/03/10-20:27:50.
 
 # License
 
