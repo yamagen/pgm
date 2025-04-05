@@ -12,8 +12,14 @@
 %\setCJKsansfont[BoldFont=HaranoAjiGothic-Bold.otf]{HaranoAjiGothic-Regular.otf}
 \setCJKmonofont[BoldFont=HaranoAjiGothic-Bold.otf]{HaranoAjiGothic-Regular.otf}
 
-\usepackage[style=authoryear, backend=biber]{biblatex} % BibLaTeX と Biber を使用
+\ifJPN
+\usepackage[backend=biber,style=authoryear]{biblatex-japanese} % BibLaTeX と Biber 
+\DeclareLanguageMapping{japanese}{japanese}
+\else
+\usepackage[backend=biber,style=authoryear]{biblatex} % BibLaTeX と Biber を使用
+\fi
 \addbibresource{koten.bib} % BibTeX ファイルを指定
+\usepackage{enumitem}
 \usepackage{tikz}
 \usepackage{version}
 \usepackage{amssymb}
@@ -85,15 +91,14 @@
   \fi
 
 \ifJPN
-\title{\textbf{プロセス文法モデル\\即時文法と調整文法\\
-\normalsize ダイジェスト版}}
+\title{プロセス文法モデル\\即時文法と調整文法}
 \author{
   山元 啓史\\東京科学大学
 %\and
 %  \Large\textbf{ホドシチェク ボル}\\\Large\textbf{大阪大学}
 }
 \else
-\title{Process Grammar Model\\Immediate Grammar and Adjustive Grammar\\\Large Digest Version}
+\title{Process Grammar Model\\Immediate Grammar and Adjustive Grammar}
 \author{
 Hilofumi Yamamoto\\Institute of Science Tokyo
 %\and
@@ -166,6 +171,12 @@ Also, if it falls under adjustment grammar, considering context dependency, the 
 \section{理論的背景}
 \else
 \section{Theoretical Background}
+\fi
+
+\ifJPN
+\ref{qa:20250405a}も併せて参照してください。
+\else
+Please refer to \ref{qa:20250405a} as well.
 \fi
 
 \ifJPN
@@ -891,7 +902,8 @@ In this digest, we have outlined the Process Grammar Model, compared Immediate G
 \fi
 
 \appendix
-\input{appendi_QandA.tex}
+\input{appendix_QandA.tex}
+\input{appendix_notes.tex}
 
 \printbibliography
 \end{document}
