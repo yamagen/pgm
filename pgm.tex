@@ -64,6 +64,8 @@
 \usepackage{url}
 \usepackage{makeidx}
 
+
+
 \makeindex
 
 \ifJPN
@@ -193,6 +195,9 @@ Please refer to \ref{qa:20250405a} as well.
 \fi
 \end{figure}
 
+
+
+
 \begin{table}[htb]\centering\small
 \ifJPN
 \caption{システム1とシステム2との特徴の違い}
@@ -200,32 +205,40 @@ Please refer to \ref{qa:20250405a} as well.
 \caption{Differences in characteristics between System 1 and System 2}
 \fi
 \label{tab:system1-system2}
-\begin{tabular}[c]{l|l}\noalign{\hrule height .8pt}
 \ifJPN
-  システム1 & システム2 \\\hline
-  速い & 遅い\\
-  潜在意識 & 意識的\\
-  自動的 & 努力的\\
-  ヒューリスティック & 分析的\\
-  連想的 & ルールベース\\
-  暗黙的 & 明示的\\
-  感情的 & 論理的\\
-  直感的 & 合理的\\
-  誤りやすい & 信頼性が高い\\
-\else
-  System 1 & System 2 \\\hline
-  fast & slow\\
-  subconscious & conscious\\
-  automatic & effortful\\
-  heuristic & analytical\\
-  associative & rule-based\\
-  implicit & explicit\\
-  emotional & logical\\
-  intuitive & rational\\
-  error prone & reliable\\
-\fi
+\toprule
+\begin{tabular}{@{}ll@{}}
+\textbf{System 1} / \textbf{発話例（即時的・直感的）} & \textbf{System 2} / \textbf{発話例（慎重・調整的）} \\
+\midrule
+速い: 「うわっ、熱っ！」 & 遅い:「やけどする温度ですから気をつけてください」 \\
+潜在意識: 「なんか嫌な感じがする…」 & 意識的:「この状況はリスク要因が多いですね」 \\
+自動的: 「あ、どうぞどうぞ！」 & 努力的:「お先にどうぞ、と言うべきかな…？」 \\
+経験則: 「いつもこうだから同じでしょ」 & 分析的:「過去5回のデータから見ても今回は違いそうだ」 \\
+連想的: 「この匂い、なんか懐かしい」 & ルールベース:「これは〇〇理論のパターンに当てはまります」 \\
+暗黙的: 「うん、まぁそんな感じ」 & 明示的:「つまりAがBに影響してCという結果になります」 \\
+感情的: 「もう無理！やだ！」 & 論理的:「その方法には問題点が3つあります」 \\
+直感的: 「なんか違う気がする」 & 合理的:「コストとリスクを考えるとこちらのほうが妥当です」 \\
+誤りやすい: 「たぶん大丈夫でしょ！」 & 信頼性が高い:「複数のソースを確認した上で判断しました」 \\
 \end{tabular}
+\else
+\begin{tabular}{@{}lp{50mm}lp{60mm}@{}}
+\toprule
+\textbf{System 1} & \textbf{Example utterance } & \textbf{System 2} & \textbf{Example utterance} \\
+& \textbf{immediate} & & \textbf{deliberate} \\
+\midrule
+Fast& ``Whoa, that's hot!'' & Slow& ``Be careful, it's hot enough to burn you.'' \\
+Subconscious& ``I have a bad feeling about this...'' & Conscious& ``There are several risk Factors here.'' \\
+Automatic& ``Oh, go ahead!'' & Effortful& ``Should I say 'please go ahead'...?'' \\
+Heuristic& ``It's always like this, so it'll be the same this time.'' & Analytical& ``Looking at the past five cases, this one might be different.'' \\
+Associative& ``This smell... reminds me of something.'' & Rule-based& ``This fits the typical pattern according to theory X.'' \\
+Implicit& ``Yeah, kind of like that.'' & Explicit& ``A leads to B, and that causes C.'' \\
+Emotional& ``I can't take this anymore!'' & Logical& ``There are three problems with that approach.'' \\
+Intuitive& ``Something just feels off.'' & Rational& ``Considering the costs and risks, this option is more reasonable.'' \\
+Error-prone& ``It'll probably be fine!'' & Reliable& ``I've verified it with multiple sources.'' \\
+\end{tabular}
+\fi
 \end{table}
+
 
 
 \ifJPN
@@ -711,7 +724,6 @@ Conversely, when an Immediate Expression is intentionally employed in written or
 
 Thus, there is a crossed (tasuki-gake) relationship between the temporal nature of utterance and the effect of expression.
 This structure makes visible the richness of expressive function and practical use that goes beyond a simple binary model.(Figure \ref{fig:tasuki-gake-picture} and \ref{fig:tasuki-gake}).
-
 \fi
 
 
