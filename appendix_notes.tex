@@ -1,7 +1,7 @@
 \ifJPN
-\section{即時文法の事例集}
+\section{即時文法の実在性を支える先行研究の蓄積}
 \else
-\section{Examples of Immediate Grammar}
+\section{Accumulation of Previous Research Supporting the Existence of Immediate Grammar}
 \fi
 \label{sec:immediate_grammar_examples}
 
@@ -15,7 +15,7 @@
 \ifJPN
 本書では、「即時文法」という理論枠組みを提示しているが、その背景には、著者自身が行ってきた複数の実践的観察と記録がある。たとえば、『伊勢物語』や『土佐日記』の翻訳において、表現の自然な現代語訳を模索する過程で、従来の構文理論では説明が困難な即時的表現が多く見出された。また、aead（An expression a day）プロジェクトにおいては、日常的な日本語表現の中に即時文法の特徴を持つ表現を日々記録し、それらにタグと注釈を加えることで、言語使用の実態と即時文法の対応を浮かび上がらせてきた。
 \else
-In this book, we present the theoretical framework of "Immediate Grammar," which is supported by multiple practical observations and records made by the author. For example, in the process of translating works like "Ise Monogatari" and "Tosa Nikki," many immediate expressions were found that are difficult to explain using conventional syntactic theories. Additionally, in the aead (An expression a day) project, we have been recording expressions with characteristics of immediate grammar in everyday Japanese, tagging them, and adding annotations to highlight the correspondence between language use and immediate grammar.
+In this book, we present the theoretical framework of ``Immediate Grammar,'' which is supported by multiple practical observations and records made by the author. For example, in the process of translating works like ``Ise Monogatari'' and ``Tosa Nikki,'' many immediate expressions were found that are difficult to explain using conventional syntactic theories. Additionally, in the aead (An expression a day) project, we have been recording expressions with characteristics of immediate grammar in everyday Japanese, tagging them, and adding annotations to highlight the correspondence between language use and immediate grammar.
 \fi
 
 \ifJPN
@@ -25,33 +25,349 @@ These tasks are not based on intuitive claims but are the results of observation
 \fi
 
 \ifJPN
-\subsection{名詞で終わる文を認める}
+\subsection{従来の「話しことば性／書きことば性」概念とPGMの立場}
 \else
-  \subsection{Allowing Sentences Ending with Nouns}
+\subsection{The Conventional Concepts of ``Spoken Language vs. Written Language'' and the Position of PGM}
 \fi
-\label{ex:noun-ending-sentences}
 
 \ifJPN
-名詞で終わる文を認める: たとえば、以下のような文は、即時文法の観点からは自然な表現である。
+従来、言語スタイルの分類においては「話しことば（orality）」と「書きことば（literacy）」という二項対立、または連続体的なモデルが用いられてきた。たとえば \textcite{biber1988} は、複数のテキストタイプにおける構文的・語彙的特徴の出現傾向を統計的に分析し、話しことば的／書きことば的なスタイルが使用媒体を越えて存在することを示した。このように「話されている＝話しことば」「書かれている＝書きことば」という定義はすでに見直されており、より精緻なスタイルモデルが提案されている。
+
+しかしながら、これらのモデルにおいても、話しことば性／書きことば性を判断する根拠が主に出現頻度や語彙傾向に依存しており、「なぜその形式が使われるのか」「その形式はどのように生成されたのか」という問いには十分に応えられていない。とくに、フィクション内のセリフや、スピーチ原稿のような事前準備された言語は、メディアと構文モードの不一致を引き起こす。
+
+この点に対して、プロセス文法モデル（PGM）は、「話しことば性」「書きことば性」を使用媒体に基づく属性ではなく、\textbf{言語生成時の処理モード（即時性／調整性）}に基づく構文タイプと再定義する。すなわち、即時文法（Immediate Grammar）によって生成された表現は話しことば的であり、調整文法（Adjustive Grammar）に基づく表現は書きことば的である。この枠組みによって、話されていない「話しことば性」や、書かれていない「書きことば性」を理論的に記述することが可能となる。
 \else
-Allowing Sentences Ending with Nouns: For example, sentences like the following are natural expressions from the perspective of immediate grammar.
+Traditionally, the classification of language styles has relied on a binary opposition or a continuum model between ``spoken language (orality)'' and ``written language (literacy).'' For example, \textcite{biber1988} statistically analyzed the syntactic and lexical features of multiple text types and demonstrated that spoken and written styles exist across different media. Thus, the definitions of ``spoken = spoken language'' and ``written = written language'' have already been revised, leading to the proposal of more refined style models.
+
+However, even in these models, the criteria for determining spoken vs. written language primarily depend on frequency of occurrence and lexical tendencies, and they do not adequately address the questions of ``why that form is used'' or ``how that form is generated.'' In particular, pre-prepared language, such as dialogue in fiction or speech scripts, can lead to inconsistencies between media and syntactic modes.
+
+In this regard, the Process Grammar Model (PGM) redefines ``spoken language'' and ``written language'' not as attributes based on the medium of use, but as syntactic types based on the processing modes during language generation (immediacy vs. adjustability). That is, expressions generated by Immediate Grammar are spoken-like, while those based on Adjustive Grammar are written-like. This framework allows for the theoretical description of ``spokenness'' that is not spoken and ``writtenness'' that is not written.
 \fi
 
-\begin{enumerate}
 \ifJPN
-  \item あれは、そのう、あれだ。
+\subsection{文法・表現・効果の三層構造}
 \else
-  \item Areha, sonou, areda. (That is, um, that.)
+\subsection{The Three Layers: Grammar, Expression, and Effect}
 \fi
+
+\begin{figure}[htbp]
+  \centering
+
+  \resizebox{.7\textwidth}{!}{
+  \begin{tikzpicture}[node distance=1.0cm, every node/.style={align=center}]
+    % Grammar Layer
+  \ifJPN
+    \node (grammar) at (0,0) {\textbf{文法}};
+    \node[left=1cm of grammar] (imm-gra) {即時文法};
+    \node[right=1cm of grammar] (adj-gra) {調整文法};
+  \else
+    \node (grammar) at (0,0) {\textbf{Grammar}};
+    \node[left=1cm of grammar] (imm-gra) {Immediate Grammar};
+    \node[right=1cm of grammar] (adj-gra) {Adjustive Grammar};
+  \fi
+    
+  % Expression Layer
+  \ifJPN
+    \node[below=of grammar] (expression) {\textbf{表現}};
+    \node[below=of imm-gra] (imm-exp) {即時表現};
+    \node[below=of adj-gra] (adj-exp) {調整表現};
+  \else
+    \node[below=of grammar] (expression) {\textbf{Expression}};
+    \node[below=of imm-gra] (imm-exp) {Immediate Expression};
+    \node[below=of adj-gra] (adj-exp) {Adjustive Expression};
+  \fi
+    
+    % Effect Layer
+  \ifJPN
+    \node[below=of expression] (effect) {\textbf{効果}};
+    \node[below=of imm-exp] (nat-eff) {自然な・生き生きした効果};
+    \node[below=of adj-exp] (pol-eff) {丁寧で改まった効果};
+  \else
+    \node[below=of expression] (effect) {\textbf{Effect}};
+    \node[below=of imm-exp] (nat-eff) {Natural and Spoken Effect};
+    \node[below=of adj-exp] (pol-eff) {Polite and Public Effect};
+  \fi
+    
+    % Arrows
+    \draw[->] (imm-gra) -- (imm-exp);
+    \draw[->] (adj-gra) -- (adj-exp);
+    \draw[->] (imm-exp) -- (nat-eff);
+    \draw[->] (adj-exp) -- (pol-eff);
+    
+    % Layer Labels
+    \draw[dashed] (imm-gra) -- (grammar);
+    \draw[dashed] (grammar) -- (adj-gra);
+    \draw[dashed] (imm-exp) -- (expression);
+    \draw[dashed] (expression) -- (adj-exp);
+    \draw[dashed] (nat-eff) -- (effect);
+    \draw[dashed] (effect) -- (pol-eff);
+%    \node at (-5.5,0) {Grammar};
+%    \node at (-5.5,-1.8) {Expression};
+%    \node at (-5.5,-3.6) {Effect};
+  \end{tikzpicture}
+}
+
 \ifJPN
-  \item やるかどうかは、自分次第。
+  \caption{プロセス文法モデルにおける三層構造（交差なし）}
 \else
-  \item Yarukadouka wa, jibun shidai. (Whether to do it or not depends on oneself.)
+  \caption{Three-layer structure in the Process Grammar Model (without intersection)}
 \fi
-\end{enumerate}
+\end{figure}
 
-%\subsection{土佐日記「よねさけ、しばしばくる」の語順と焦点化} \label{ex:yonosake}
 
-%\subsection{伊勢物語「それがこうなる」の指示と文脈依存性} \label{ex:soregakounaru}
+\ifJPN
+プロセス文法モデルでは、言語使用をより精密に記述するために、「文法（Grammar）」「表現（Expression）」「効果（Effect）」という三層構造を採用する。この構造は、言語形式そのものではなく、生成プロセス・使用文脈・受け手の解釈効果に着目したものである。
 
-%\subsection{即時文法における「て連鎖」の認知処理} \label{ex:te-rensa}
+\begin{itemize}
+  \item \textbf{文法（Grammar）}：即時的に生成される文法（即時文法）と、調整・準備を経た文法（調整文法）
+  \item \textbf{表現（Expression）}：実際に表出された形式（即時表現／調整表現）
+  \item \textbf{効果（Effect）}：使用文脈に応じて、自然で生き生きした効果（Natural and Spoken Effect）や、丁寧で改まった効果（Polite and Public Effect）を生じる
+\end{itemize}
+
+この三層の交差によって、文法と使用文脈が一致しない場合でも、発話や記述の効果を理論的に説明することが可能となる。たとえば、即時文法によって生成された即時表現が、小説・映画・テレビドラマにおいて用いられた場合、自然で臨場感のある印象（Natural and Spoken Effect）を与える。一方、調整文法による表現がスピーチやナレーションで即時的に使用された場合には、丁寧で改まった印象（Polite and Public Effect）を与える。
+
+このような文法と効果の交差を「襷掛け効果（Tasuki-gake Effect）」と呼ぶ。これは、即時性と調整性が相補的に用いられ、媒体やスタイルに依存しない柔軟な言語使用が可能であることを示している。
+\else
+To describe language use more precisely, the Process Grammar Model adopts a three-layer structure: ``Grammar,'' ``Expression,'' and ``Effect.'' This structure focuses not on surface features but on the generation process, contextual use, and the interpretive effect on the listener or reader.
+
+\begin{itemize}
+  \item \textbf{Grammar}: Immediate Grammar (real-time generation) vs. Adjustive Grammar (generated with preparation)
+  \item \textbf{Expression}: The actual linguistic form expressed (Immediate vs. Adjustive Expression)
+  \item \textbf{Effect}: Depending on the context, expressions evoke either a Natural and Spoken Effect or a Polite and Public Effect
+\end{itemize}
+
+This tripartite structure makes it possible to explain communicative effects even when the grammar and context do not align. For example, Immediate Expressions generated by Immediate Grammar, when used in novels or films, create a vivid and realistic impression (Natural and Spoken Effect). Conversely, Adjustive Expressions, when used in real-time speech such as public addresses, produce a refined and formal impression (Polite and Public Effect).
+
+This cross-contextual usage is termed the ``Tasuki-gake Effect,'' highlighting how immediacy and adjustiveness can be flexibly combined beyond stylistic or media-based constraints.
+\fi
+
+\ifJPN
+\subsection{Wallace Chafe の情報構造モデルとプロセス文法モデル（PGM）}
+\else
+\subsection{Wallace Chafe's Information Structure Model and the Process Grammar Model (PGM)}
+\fi
+
+\ifJPN
+\textcite{chafe1982integration}は、話しことばと書きことばの差異を「即時性」と「調整性」の観点から理論的に整理し、以下の4つの概念軸を提示した：
+\else
+\textcite{chafe1982integration} theoretically organized the differences between spoken and written language from the perspectives of ``immediacy'' and ``adjustability,'' proposing the following four conceptual axes:
+\fi
+
+\begin{itemize}
+\ifJPN
+  \item \textbf{Idea Units（アイデアユニット）} \\ 発話は、意味・感情・リズムの単位として「思考の断片」が逐次生成されることで構成される。話しことばの即時性の基盤となる。
+\else
+  \item \textbf{Idea Units} \\ Speech is constructed by the sequential generation of ``fragments of thought'' as units of meaning, emotion, and rhythm. This forms the basis of the immediacy of spoken language.
+\fi
+
+\ifJPN
+  \item \textbf{Integration（統合性）} \\ 情報をどれだけ圧縮し、構造的に統合するかの度合い。書きことばでは修飾・名詞化・複文構造によって統合性が高められる。
+\else
+\item \textbf{Integration} \\ The degree to which information is compressed and structurally integrated. In written language, integration is enhanced through modification, nominalization, and complex sentence structures.
+\fi
+
+\ifJPN
+  \item \textbf{Involvement（関与性）} \\ 発話がどれだけ話者の感情や関係性に基づいて構築されているかを表す。関与性が高いほど、即時的で共感的な表現が増える。
+\else
+  \item \textbf{Involvement} \\ Indicates how much the speech is constructed based on the speaker's emotions and relationships. The higher the involvement, the more immediate and empathetic the expression becomes.
+\fi
+
+\ifJPN
+  \item \textbf{Detachment（距離性）} \\ 抽象化・客観化された記述スタイル。語り手の姿勢が感情的関与から離れるとき、言語は距離性を帯び、調整文法に近づく。
+\else
+  \item \textbf{Detachment} \\ An abstracted and objective descriptive style. When the narrator's stance moves away from emotional involvement, the language takes on a detached quality, approaching adjustive grammar.
+\fi
+
+\end{itemize}
+
+\begin{table}[htbp]\centering\small
+\ifJPN
+  \caption{Chafe のモデルと PGM の対照. 
+  \textcite{chafe1982integration}を参考に作成}
+\else
+  \caption{Comparison of Chafe's Model and PGM.
+    Adapted from \textcite{chafe1982integration}}
+\fi
+  \label{tab:chafe}
+\ifJPN
+  \begin{tabular}{lll} \noalign{\hrule height .8pt}
+  Chafeの概念 & 即時文法(IG) & 調整文法(AG) \\ \hline
+  Idea Units & 発話のスパート的な連鎖 & 統合された複文構造 \\
+  Integration & 低（語順・構文の冗長性を含む） & 高（修飾の埋め込み・構造の密度） \\
+  Involvement & 高（語り手の感情・共感の発露） & 低（客観・脱個人的視点） \\
+  Detachment & 低（話者の具体的関与） & 高（抽象化・受動化・形式性） \\
+\end{tabular}
+\else
+  \begin{tabular}{lp{60mm}p{60mm}} \noalign{\hrule height .8pt}
+  Chafe's Concept & Immediate Grammar (IG) & Adjustive Grammar (AG) \\ \hline
+  Idea Units & Spurt-like chain of speech & Integrated complex sentence structure \\
+  Integration & Low (including redundancy in word order and syntax) & High (embedding of modifiers, density of structure) \\
+  Involvement & High (emotional expression of the narrator, empathy) & Low (objectivity, depersonalized perspective) \\
+  Detachment & Low (specific involvement of the speaker) & High (abstraction, passivation, formality) \\
+\end{tabular}
+\fi
+\end{table}
+\bigskip
+
+\ifJPN
+この対比は、PGM が定義する「即時性（Immediate Grammar）」と「調整性（Adjustive Grammar）」という文法使用の2軸を、Chafe の心理的・談話的次元における4概念——「アイデアユニット（思考の断片性）」「統合性（情報密度）」「関与性（感情的・対人的な結びつき）」「距離性（抽象性・脱個人性）」——によって、より多面的に位置づけるものである。
+\else
+This comparison positions the two axes of grammatical use defined by PGM—``immediacy'' and ``adjustability''—within Chafe's four concepts in psychological and discourse dimensions: ``Idea Units'' (fragmentation of thought), ``Integration'' (information density), ``Involvement'' (emotional and interpersonal connections), and ``Detachment'' (abstraction and depersonalization).
+\fi
+
+\ifJPN
+表\ref{tab:chafe}が示すように、即時文法は断片的・感情的・対人的であり、話し手の主観的な関与が濃い言語使用を特徴とする。一方で調整文法は、構造が高度に統合され、抽象的かつ客観的な表現形式に向かう。Chafe の理論は、PGM の「連続体モデル（continuum model）」を裏付ける外部理論として重要な役割を果たし、両者のモデルの相補的関係を可視化するものである。
+\else
+As shown in Table \ref{tab:chafe}, immediate grammar is characterized by fragmented, emotional, and interpersonal language use, with a strong subjective involvement of the speaker. In contrast, adjustive grammar features highly integrated structures and moves toward abstract and objective forms of expression. Chafe's theory plays an important role as an external theory supporting PGM's ``continuum model,'' visualizing the complementary relationship between the two models.
+\fi
+
+\ifJPN
+もっとも、Chafe のモデルにもいくつかの限界がある。
+第一に、彼の「統合性」と「関与性」という二軸は心理的・談話的観点に重きを置いているため、言語構造そのものにおける形式的制約（たとえば語順、助詞、文の構造的許容性など）を十分に説明しきれない。
+第二に、彼の「アイデアユニット」理論は話しことばの断片性を示すのに有効だが、語りの流れにおける構文的連鎖（たとえば呼応、反復、喚体句など）の扱いが限定的である。
+\else
+However, Chafe's model also has some limitations.
+First, his two axes of ``integration'' and ``involvement'' place emphasis on psychological and discourse perspectives, which may not sufficiently explain formal constraints in the language structure itself (e.g., word order, particles, structural permissibility of sentences).
+Second, while his theory of ``idea units'' is effective in demonstrating the fragmentation of spoken language, it has limited applicability in handling syntactic chains in narrative flow (e.g., anaphora, repetition, and vocative phrases).
+\fi
+
+\ifJPN
+これに対して、PGM は即時文法と調整文法を文法形式と生成条件の観点から明示的に記述することで、Chafe の心理的次元に構造的次元を加える枠組みを提供している。
+したがって、Chafe の理論は PGM の記述的深度を広げる参照枠として有効であり、逆に PGM は Chafe モデルの構造的・文法的限界を補完する形で位置づけることができる。
+\else
+In contrast, PGM explicitly describes immediate and adjustive grammar in terms of grammatical forms and generation conditions, providing a framework that adds structural dimensions to Chafe's psychological dimensions.
+Thus, Chafe's theory serves as an effective reference framework for broadening the descriptive depth of PGM, while PGM can be positioned to complement the structural and grammatical limitations of Chafe's model.
+\fi
+
+\ifJPN
+このように、Chafe が提示した心理的枠組みは、即時性と調整性の概念においてきわめて有効であるが、そのまま文法的記述に用いるには限定的である。PGM はこの理論的遺産を継承しつつ、言語の構造的現実と生成的文法の観点から、より精緻な統合を可能にしている。
+\else
+Thus, while Chafe's psychologically grounded model is highly effective in conceptualizing immediacy and adjustability, it remains limited when applied directly to grammatical description. The Process Grammar Model (PGM) inherits this theoretical legacy and extends it by integrating structural and generative dimensions of language.
+\fi
+
+\ifJPN
+\subsection{Halliday の機能文法と生成理論の比較、そして PGM の位置づけ}
+\else
+\subsection{Comparison of Halliday's Functional Grammar and Generative Theory, and the Positioning of PGM}
+\fi
+
+\ifJPN
+\subsubsection{話しことばと書きことばに対するHallidayの基本姿勢とSFLの必要性}
+\else
+\subsubsection{Halliday's Basic Attitude Toward Spoken and Written Language and the Necessity of SFL}
+\fi
+
+\ifJPN
+Halliday（\textcite{halliday1994spoken}）は、言語を単なる伝達の道具ではなく、「意味を創出する社会的資源」と捉える。この立場から、彼は特に話しことば（spoken language）と書きことば（written language）の違いに注目し、それぞれが果たす機能の相違を言語理論の中心に据えた。
+\else
+  Halliday (\textcite{halliday1994spoken}) views language not merely as a tool for communication but as a ``social resource for creating meaning.'' From this perspective, he particularly focuses on the differences between spoken language and written language, placing the functional distinctions of each at the center of linguistic theory.
+\fi
+
+\ifJPN
+Halliday にとって、話しことばとは即時性と関与性に富んだ言語活動であり、文脈依存的で、リズムと即興性が支配する。一方、書きことばは高度に統合された構造をもち、抽象的で普遍化された意味表現が可能なモードである。
+\else
+Halliday considers spoken language to be a linguistic activity rich in immediacy and involvement, characterized by contextual dependency, rhythm, and improvisation. In contrast, written language possesses a highly integrated structure, allowing for abstract and generalized expressions of meaning.
+\fi
+
+\ifJPN
+このような話しことばと書きことばの機能的差異を明示的に記述する必要から、Halliday は機能文法（Systemic Functional Linguistics, SFL）を展開した。SFL においては、言語は単に構文単位の集合ではなく、\textbf{ideational（観念的）・interpersonal（対人的）・textual（テクスト的）}という三つのメタ機能を同時に担うプロセスとして捉えられる。
+\else
+  This functional distinction between spoken and written language led Halliday to develop Systemic Functional Linguistics (SFL). In SFL, language is not merely a collection of syntactic units but is viewed as a process that simultaneously fulfills three meta-functions: \textbf{ideational (representing ideas), interpersonal (interacting with others), and textual (organizing text)}.
+\fi
+
+\ifJPN
+とりわけ、Halliday は書きことばを「文法的に高度に統合された形式（grammatically intricate）」、話しことばを「構造的には単純だが意味的に豊かな形式（lexically dense）」と位置づけ、従来の構文中心のモデルでは捉えきれない「使用の場に応じた意味機能の違い」を理論化した。これこそが、彼が構築した選択体系機能言語学（SFL）の出発点であり、社会的状況に即した言語の選択可能性を記述するための基盤となっている。
+\else
+In particular, Halliday characterizes written language as ``grammatically intricate'' and spoken language as ``lexically dense but structurally simple,'' theorizing the differences in meaning functions that cannot be captured by traditional syntax-centered models. This serves as the starting point for his development of Systemic Functional Linguistics (SFL), providing a foundation for describing the choices of language that are contextually relevant to social situations.
+\fi
+
+\if
+\subsubsection{理論構築の目的の違い}
+\else
+\subsubsection{Differences in the Purpose of Theoretical Construction}
+\fi
+
+\ifJPN
+Halliday の機能文法（SFL）と Chomsky の生成理論（\textcite{chomsky1965aspects}）は、言語に対する基本的な捉え方と理論構築の目的において、根本的に異なっている。
+\else
+  \subsubsection{Fundamental Differences in the Basic Understanding of Language and Theoretical Construction}
+\fi
+
+\ifJPN
+生成理論は、言語を人間に生得的に備わっている能力と捉え、その内部構造や構文規則を数理的に明示化することを目指している。ここでは、理想化された話者・聞き手という抽象的存在を前提とし、主に NP や VP といった構文単位に基づいて文を分析する。証明においては、経済性や最小限の規則からなる普遍文法（UG）を構築することが重視される。
+\else
+Generative theory views language as an innate ability of humans, aiming to mathematically clarify its internal structure and syntactic rules. In this framework, an idealized speaker-listener is assumed, and sentences are primarily analyzed based on syntactic units such as NP (noun phrase) and VP (verb phrase). The focus is on constructing a universal grammar (UG) based on principles of economy and minimalism.
+\fi
+
+\ifJPN
+一方で、Halliday の機能文法は、言語を社会的行為の資源と見なし、実際の文脈において使われる言語の意味機能を明らかにしようとする。ここでは、理想話者ではなく、現実の書き手・話し手が主語となり、文の単位も句ではなく節（clause）が中心となる。意味の使用実態に根ざしており、構文の妥当性ではなく、文脈における機能的妥当性が重視される。
+\else
+In contrast, Halliday's functional grammar views language as a resource for social action, aiming to clarify the meaning functions of language used in actual contexts. Here, the focus is not on an ideal speaker but on real writers and speakers, with clauses (not phrases) being the central unit of analysis. It is rooted in the actual use of meaning, emphasizing functional validity in context rather than syntactic correctness.
+\fi
+
+\ifJPN
+このように、Chomsky は文法の「内部構造」を、Halliday は文法の「社会的機能」を記述の主眼としており、それぞれの理論は異なる問いに答えようとしている。
+\else
+Thus, Chomsky focuses on the ``internal structure'' of grammar, while Halliday emphasizes the ``social function'' of grammar, with each theory attempting to address different questions.
+\fi
+
+\ifJPN
+それぞれの理論は、異なる次元の言語的問いに取り組んでおり、どちらも独自の意義を持つ。生成理論は、言語能力の普遍的構造とその数理的記述において深い洞察を与えており、文法理論の形式的精緻化に大きな貢献をしてきた。一方、SFLは、社会的場面での言語使用の多様性を反映し、文法を意味生成の手段として捉えるという点で、教育・言語習得・メディア研究など実践的領域において重要な理論的基盤を提供している。
+\else
+Each theory addresses different dimensions of linguistic questions and holds its own significance. Generative theory provides deep insights into the universal structure of language ability and its mathematical description, contributing significantly to the formal refinement of grammatical theory. On the other hand, SFL reflects the diversity of language use in social contexts and offers an important theoretical foundation in practical fields such as education, language acquisition, and media studies by viewing grammar as a means of meaning generation.
+\fi
+
+\ifJPN
+\subsubsection{Halliday の強みと生成理論との相違点}
+\else
+\subsubsection{Halliday's Strengths and Differences from Generative Theory}
+\fi
+
+\ifJPN
+Halliday の機能文法は、いくつかの点において生成理論とは異なる強みを持っている。第一に、Halliday は言語を使用の観点からとらえ、命令文や願望文、評価表現など、日常的な文法使用を理論の出発点とする。第二に、文の構成を主語や述語といった構文的枠組みではなく、行為・参加者・状況という意味的単位で記述する点が特徴的である。第三に、言語使用が常に社会的文脈の中で起こることを前提とし、文体（レジスター）やジャンルなど社会的条件と不可分のものとして扱う。第四に、一つの文が三つのメタ機能――ideational（観念的）、interpersonal（対人的）、textual（テクスト的）――を同時に実現するという点に注目する。この重層的な構造こそが、SFLが理論的に最も特徴的であり、他の文法理論では十分に扱われてこなかった多機能性の統合を示している。
+\else
+Halliday's functional grammar possesses several strengths that differ from generative theory. First, Halliday approaches language from the perspective of use, making everyday grammatical usage—such as imperatives, desideratives, and evaluative expressions—the starting point of his theory. Second, he describes the structure of sentences not in terms of syntactic frameworks like subjects and predicates but in terms of semantic units such as actions, participants, and situations. Third, he assumes that language use always occurs within a social context, treating it as inseparable from social conditions such as style (register) and genre. Fourth, he emphasizes that a single sentence can simultaneously realize three meta-functions: ideational (representing ideas), interpersonal (interacting with others), and textual (organizing text). This layered structure is what makes SFL theoretically distinctive and demonstrates the integration of multifunctionality that has not been adequately addressed by other grammatical theories.
+\fi
+
+\ifJPN
+SFL に対しては、生成理論の側からいくつかの批判的見解が提示されている\parencite{newmeyer1998language,pullum2010central}。まず第一に、SFL の規則体系には形式的に厳密な文法生成規則が明示されておらず、この点が「形式的定義の欠如」として批判の対象となる。第二に、SFL における構文と意味の関係は密接であるがゆえに、生成理論が採る「構文と意味の峻別」という原則とは相容れず、その区別が曖昧であると見なされる。第三に、SFL の構造記述は数理的整合性や再現可能性の面で不十分とされ、形式文法としての精緻なモデル化が困難であるという指摘がなされている。
+\else
+Critiques from the generative side have been directed at SFL \parencite{newmeyer1998language,pullum2010central}. First, the system of rules in SFL lacks formally rigorous grammatical generation rules, which is criticized as a ``lack of formal definition.'' Second, while the relationship between syntax and meaning in SFL is close, it is seen as incompatible with the generative principle of ``distinguishing syntax from semantics,'' leading to perceptions of ambiguity. Third, SFL's structural descriptions are considered insufficient in terms of mathematical consistency and reproducibility, making it difficult to model them as formal grammars.
+\fi
+
+\ifJPN
+このように、SFL の柔軟で意味重視の枠組みと生成理論の求める明確性と形式的厳格さは言語の事実を詳らかにする上で重要で両者ともに重要であるが、統合的枠組みにより、これらの良さを生かすべきであると考える。
+\else
+This way, the flexible and meaning-oriented framework of SFL and the clarity and formal rigor sought by generative theory are both important for elucidating linguistic facts, and it is believed that an integrated framework should leverage these strengths.
+\fi
+
+\ifJPN
+\subsubsection{PGMが文法の記述の点で、社会的機能の記述に貢献できること}
+\else
+\subsubsection{PGM's Contribution to the Description of Social Functions in Grammar}
+\fi
+
+\ifJPN
+PGM（プロセス文法モデル）は、SFLが重視してきた社会的機能の観点を保持しながらも、それをより明示的に文法構造に結びつけるための補助的な枠組みとして機能する。特に、PGMは言語表現が出現する「使用条件」を重視し、発話が即時的に生成されるか、それともあらかじめ調整された構文に基づくかという時間的特性に注目する。この「即時性／調整性」という軸は、Halliday の対人的機能やテクスト形成的機能と深く結びついており、実際の言語使用の場における構文的選択の背後にある要因を記述可能とする。
+\else
+The Process Grammar Model (PGM) functions as a supplementary framework that retains the social function perspective emphasized by SFL while making it more explicitly connected to grammatical structures. In particular, PGM focuses on the ``conditions of use'' under which linguistic expressions emerge, paying attention to whether speech is generated immediately or based on pre-adjusted syntax. This axis of ``immediacy/adjustability'' is deeply connected to Halliday's interpersonal and textual functions, allowing for the description of the factors behind syntactic choices in actual language use.
+\fi
+
+\ifJPN
+また、PGMが導入する「効果層（Effect Layer）」という概念は、単に構文形式が意味を担うだけではなく、それがどのような語用論的効果をもたらすか（たとえば親しさ、敬意、強調、即興性など）を記述するための有効な手段である。これは、Hallidayが提唱する文法の対人的機能と部分的に重なりながらも、PGMにおいてはその効果が発話生成のプロセスの中で動的に生起するものとして扱われる点において、機能文法に対する拡張的補足を与えている。
+\else
+Additionally, the concept of the ``Effect Layer'' introduced by PGM serves as an effective means to describe not only how syntactic forms carry meaning but also what pragmatic effects they produce (e.g., familiarity, respect, emphasis, immediacy). While this partially overlaps with Halliday's interpersonal function of grammar, PGM treats these effects as dynamically arising within the process of speech generation, providing an extended supplement to functional grammar.
+\fi
+
+\ifJPN
+このように、PGMは構文と機能の対応を静的な体系ではなく、生成の過程そのものにおける可変的・選択的な現象として捉え直すことにより、SFLが描き出してきた社会的意味のネットワークを、より実行可能な文法記述のレベルに接続する可能性を持っている。
+\else
+Thus, PGM has the potential to reconceptualize the correspondence between syntax and function not as a static system but as a variable and selective phenomenon within the process of generation, thereby connecting the network of social meanings depicted by SFL to a more actionable level of grammatical description.
+\fi
+
+
+%今後の展開として：
+%    🧭 Chafe・Halliday・Chomsky を並置する導入節の整備
+%    📘 各理論の用語集的まとめ（附録形式）
+%    🌐 英文展開や要約パラグラフの整備
+%    🧪 実例（会話・文・詩・教育場面など）への応用節

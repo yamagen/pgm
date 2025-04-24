@@ -1,0 +1,26 @@
+{
+  "pgm-notes-ja": {
+    "談話研究・会話分析との違い": "プロセス文法モデル（PGM）は、従来の談話研究や会話分析とは異なる立場に立っている。談話研究は、会話の流れや話者間のやり取りを外部から記述し、社会的・機能的な側面に注目する。一方、PGMは、語がどのように思考の流れに従って発話されるか、すなわち『ことばがどのように出てくるか』という内的な構文生成プロセスに注目する。",
+    "PGMの記述対象": "PGMは、語りがイベントドリブン（思いついた順）で展開されるという仮定に立ち、語順のねじれ、省略、話者交代などの構造を、『逸脱』としてではなく、生成過程として捉える。即時文法（immediate grammar）と調整文法（adjustive grammar）の2層モデルにより、従来の文法体系では捉えきれなかった言語行動のリアルな動きを記述することが目的である。",
+    "時間性と生成の観点": "談話研究が過去の記録・交替構造の記述に重きを置くのに対し、PGMは、発話生成時の内的処理順や瞬間性に焦点を当てる。言語は無計画に生まれるという前提から、静的な構文木ではなく、即時性に応じた処理のモデルが必要とされる。これはSystem 1（即時的な処理）とSystem 2（調整的な処理）の二重過程理論と自然に対応する。",
+    "話しことば性／書きことば性に対するPGMの立場": "従来の談話研究やコーパス言語学においては、『話しことば性』『書きことば性』という二項対立や連続体の概念が広く用いられてきた。Biber (1988) のように、話しことば性と書きことば性は明確に二分できるものではなく、スタイルや媒体に応じた連続的な傾向として捉える立場は一定の有効性を持つが、その定義はしばしば『話されているから話しことば』『書かれているから書きことば』という表面的なメディア依存に留まりがちである。この定義では、『話さないのに話しことば的』『書かれていないのに書きことば的』という逆説的現象を正しく捉えることができない。プロセス文法モデルは、これらの性質を単なるメディアの反映ではなく、言語処理の即時性と調整性という時間的枠組みに基づく構文生成のモードとして再定義する。すなわち、『話しことば性』とは即時文法によって生成された表現の特徴、『書きことば性』とは調整文法により構成された表現の特徴であり、使用媒体とは切り離された、処理の構造に根ざした記述概念である。",
+    "言語表現の選択と効果に関する4つの問い": {
+      "1. なぜその形式が使われるのか": "言語形式の選択は、話者の処理資源、即時性の必要性、文脈の圧力などにより条件づけられる。プロセス文法モデルでは、この選択を『即時文法』か『調整文法』かという観点から記述し、形式は認知的条件下で動的に選ばれるものと捉える。",
+      "2. その表現にはどんな効果があるのか": "表現が選ばれることには、情報の強調、感情の提示、関係性の演出といった効果が含まれる。これを記述するために、プロセス文法では『効果層（Effect Layer）』を導入し、形式の使用によって生じる語りのニュアンスを明示する。",
+      "3. 使用者はどう感じられるのか": "形式に対する印象や感じ方は、期待された表現との一致・不一致や、文脈での逸脱により規定される。これは逸脱の強さや意図的なズレの評価関数としてモデル化できる。",
+      "4. その表現には形式的なルールがあるか": "語順・助詞・接続の許容性などは、抽象的な文法規則というより、文脈と使用条件に応じた制約として記述されるべきである。プロセス文法ではこのような条件付きの構造を『igrules』として整理する。"
+    }
+  },
+  "pgm-notes-en": {
+    "Difference from Discourse and Conversation Analysis": "The Process Grammar Model (PGM) stands apart from traditional discourse and conversation analysis. While discourse studies focus on the external flow of interaction and social functions, PGM centers on the internal process of how language emerges in real time—how words come into being through cognitive flow.",
+    "Descriptive Focus of PGM": "PGM is based on the idea that utterances are event-driven, following the order in which thoughts arise. It views phenomena such as omission, word order irregularities, and speaker shifts not as deviations from norm but as expressions of the generative process. The model’s two-layer system of Immediate Grammar and Adjustive Grammar captures this dynamism beyond the reach of traditional syntax.",
+    "Temporal and Generative Perspective": "Unlike discourse studies, which often document finalized interactions, PGM focuses on the temporal and cognitive processes involved in utterance formation. Assuming language is unplanned in its moment of use, it shifts from static phrase structure trees to a dynamic model of grammar shaped by real-time constraints. This corresponds naturally with dual process theory—System 1 for immediate processing, and System 2 for reflective, adjusted speech.",
+    "PGM's Position on Orality and Literacy": "In traditional discourse studies and corpus linguistics, 'orality' and 'literacy' have often been treated as either a binary or a stylistic continuum. While Biber (1988) rightly argues that speech and writing lie along a continuum rather than forming a strict dichotomy, such frameworks frequently reduce these concepts to media-dependent definitions—i.e., spoken equals oral, written equals literate. This leads to paradoxes such as 'oral style in written text' or 'literate style in spontaneous speech,' which are difficult to reconcile under a medium-based model. The Process Grammar Model reconceptualizes these properties not as artifacts of modality, but as outcomes of temporal constraints in language generation. From this perspective, 'orality' reflects forms produced under Immediate Grammar, while 'literacy' reflects forms shaped through Adjustive Grammar. These are structural modes of expression independent of whether the output is spoken or written.",
+    "Four Key Questions About Form Selection and Effect": {
+      "1. Why is a particular form used?": "Form choice is conditioned by the speaker’s cognitive load, immediacy of response, and contextual pressure. In the Process Grammar Model, this is modeled as a selection between Immediate and Adjustive Grammar, reflecting the speaker’s real-time constraints.",
+      "2. What effect does the expression have?": "Every linguistic form carries effects—such as emphasis, emotional tone, or social positioning. The PGM introduces an 'Effect Layer' to represent the communicative and stylistic impact associated with structural choices.",
+      "3. How is the expression perceived by users?": "User perception depends on how expected or unexpected the form is in context. This can be formalized as a function of deviation strength and pragmatic salience.",
+      "4. Are there formal rules governing the form?": "Rather than relying solely on abstract grammatical rules, PGM models permissible usage through context-sensitive constraints. These are encoded in the form of conditional usage rules (igrules), which specify what combinations are allowed under which communicative conditions."
+    }
+  }
+}
