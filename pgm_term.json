@@ -1,0 +1,46 @@
+{
+  "terms": [
+    {
+      "label": "PGM",
+      "term": "Process Grammar Model",
+      "description-ja": "即時文法と調整文法の2層モデル。人間の言語使用のプロセス的構造に着目した文法理論。",
+      "description-en": "A two-layer model of Immediate and Adjustive Grammar, focusing on the processual nature of language use."
+    },
+    {
+      "label": "PG-Gloss",
+      "term": "Phrase Gloss Method",
+      "description-ja": "逐語訳に基づく2層構造のgloss記述法。句と語の意味・文法をJSON形式で明示。",
+      "description-en": "A two-tiered glossing method based on strict literal translation, using phrase and word-level annotation in structured JSON."
+    },
+    {
+      "label": "glossary-abbreviations",
+      "term": "Gloss Abbreviation List",
+      "description-ja": "LOC, PST, GEN などの略語とその意味を整理した一覧。",
+      "description-en": "A structured list of gloss abbreviations such as LOC, PST, GEN with their definitions."
+    },
+    {
+      "label": "notes-ja / notes-en",
+      "term": "Discourse Notes",
+      "description-ja": "語り手の効果、発話構造、文体的特徴を記述する注釈。",
+      "description-en": "Annotations describing discourse effects, utterance structure, and stylistic features."
+    },
+    {
+      "label": "gloss-notes-ja / gloss-notes-en",
+      "term": "Gloss Notes",
+      "description-ja": "gloss の選択・解釈・活用形などに関する補足的注記。",
+      "description-en": "Supplemental notes on gloss selection, interpretation, and inflectional analysis."
+    },
+    {
+      "label": "adjusted-expression",
+      "term": "Adjustive Expression",
+      "description-ja": "調整文法に基づいて整えられた文法的・語用的表現。",
+      "description-en": "Expressions formulated through adjustive grammar for stylistic, polite, or public effects."
+    },
+    {
+      "label": "tasuki-gake effect",
+      "term": "襷掛け効果",
+      "description-ja": "即時文法と調整文法が交差して文体効果を生む現象。",
+      "description-en": "A stylistic phenomenon where immediate and adjustive grammar intersect, producing narrative or rhetorical effects."
+    }
+  ]
+}

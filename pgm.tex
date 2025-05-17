@@ -20,6 +20,8 @@
 \addbibresource{koten.bib} % BibTeX ファイルを指定
 \usepackage{enumitem}
 \usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning}
+
 \usetikzlibrary{positioning}
 \usepackage{version}
 \usepackage{amssymb}
@@ -190,7 +192,7 @@ Please refer to \ref{qa:20250405a} as well.
 \begin{figure}[htb]\centering\small
 \includegraphics[width=0.45\textwidth]{./figures/fastslow01.pdf} 
 \ifJPN
-  \caption{二重過程理論 \href{https://thedecisionlab.com/reference-guide/philosophy/system-1-and-system-2-thinking}{``System 1 and System 2 Thinking''}より}\label{fig:fastslow01}
+  \caption{二重過程理論 \href{https://thedecisionlab.com/reference-guide/philosophy/system-1-and-system-2-thinking}{``System 1 and System 2 Thinking''}より}\label{fig:fastslow01-j}
 \else
   \caption{Dual processing theory based on the presentation from \href{https://thedecisionlab.com/reference-guide/philosophy/system-1-and-system-2-thinking}{``System 1 and System 2 Thinking''}}\label{fig:fastslow01}
 \fi
@@ -239,9 +241,9 @@ Error-prone& ``It'll probably be fine!'' & Reliable& ``I've verified it with mul
 
 
 \ifJPN
-プロセス文法モデルは、二重過程理論に言われる「システム1（速い思考）とシステム2（遅い思考）」の枠組みに類似する。しかし、本モデルは単なる応用ではなく、即時性と調整性に焦点を当てた独自の視点を持つ\autocite{Evans2008, Kahneman2011-KAHTFA-2,squire2009memory}。
+プロセス文法モデルは、二重過程理論に言われる「システム1（速い思考）とシステム2（遅い思考）」の枠組みに類似する。しかし、本モデルは単なる応用ではなく、即時性と調整性に焦点を当てた独自の視点を持つ\autocite{Evans2008, Kahneman2011-KAHTFA-2, squire2009memory}。
 \else
-The Process Grammar Model is similar to the framework of ``System 1 (fast thinking) and System 2 (slow thinking)'' refered as the Dual Process Theory. However, this model has a unique perspective focusing on immediacy and adjustability, rather than being a mere application.\autocite{Evans2008, Kahneman2011-KAHTFA-2,squire2009memory}
+The Process Grammar Model is similar to the framework of ``System 1 (fast thinking) and System 2 (slow thinking)'' refered as the Dual Process Theory. However, this model has a unique perspective focusing on immediacy and adjustability, rather than being a mere application.\autocite{Evans2008, Kahneman2011-KAHTFA-2, squire2009memory}
 \fi
 
 \ifJPN
@@ -283,7 +285,6 @@ This study proposes the name ``Process Grammar Model'' as a framework to explain
   \textcite{sakakura1975ae} expressed the construction of Japanese text as ``adding one after another,'' and \textcite{komatu2003ae} stated that it is ``constructed by adding one after another,'' pointing out the characteristics of clause chaining in Japanese poetry and prose. Such expressions emphasize that the construction of sentences is sequential and flexible, suggesting that the relationships between each phrase are not necessarily close. \textcite{kondo2005be} also stated that ``since it is added, it is difficult to define which is the main clause and which is the subordinate clause in the resulting compound sentence,'' indicating that the hierarchical structure of clauses is ambiguous. These considerations suggest that language use is based on the natural order in which acts and events are recalled, rather than following syntactic binding rules. They reveal that language utterances are based on flexible adaptations to the flow of the speaker's thoughts and the situation, rather than grammatical adjustments. Therefore, such immediate speech processes are considered to be universally observed features in language development and communication.
 \fi
 
-
 \ifJPN
   \subsection{節連接と句の連結方法}
 \else
@@ -305,13 +306,11 @@ This study proposes the name ``Process Grammar Model'' as a framework to explain
   The responses in children's stories are thought to naturally appear in a form close to immediate grammar. When telling stories, children often repeat responses in short units, and it is noted that the chaining of phrases is not always logically coherent. This is considered to reflect the characteristic of immediate grammar, where sentences are constructed immediately. Children's immediate responses are dominant at a stage where linguistic adjustments are minimal, and they intuitively connect to the next phrase. This immediate response plays an important role in the process of language development and serves as a foundation for learning complex syntax and grammatical adjustments. The flexibility and fluidity that children exhibit when creating sentences are considered to be related to the characteristics of immediate grammar.
 \fi
 
-
 %\ifJPN
 %  \subsection{関連研究}
 %\else
 %  \subsection{Related Research}
 %\fi
-
 
 \ifJPN
   \section{即時文法と調整文法}
@@ -321,7 +320,8 @@ This study proposes the name ``Process Grammar Model'' as a framework to explain
 
 \ifJPN
   \begin{table}[htb]\centering\small
-  \caption{即時文法 vs 調整文法の対比}\label{tab:immediate-vs-adjustive}
+  \label{tab:immediate-vs-adjustive-j}
+  \caption{即時文法 vs 調整文法の対比}
   \begin{tabular}[c]{lll}\noalign{\hrule height .8pt}
   カテゴリ   & 即時文法  & 調整文法\\ \hline
   名詞止め   & ちょうど今、カレーうどん、できたところ。&カレーうどんがちょうど今、できたところです。\\
@@ -360,7 +360,7 @@ This study proposes the name ``Process Grammar Model'' as a framework to explain
 調整文法は文の構造が明確で、推敲が可能な文法である。
 
 即時文法の実在性を確認するには、一般的に文と呼ばれるものを短くし、目の前の人に対して、短く発話できるとき、その形式を捉え、「名詞止め」「副詞のみ」などの命名で分類すると、その特徴的なルールが見えてくることだろう。
-ここでは、即時文法と調整文法の特徴を端的に示すために、両者の対比を表\ref{tab:immediate-vs-adjustive}に示す。
+ここでは、即時文法と調整文法の特徴を端的に示すために、両者の対比を表\ref{tab:immediate-vs-adjustive-j}に示す。
 \else
 Immediate grammar is short and has high real-time characteristics. It is established in the smallest unit.
 Traditionally, it has not been considered as a sentence, but such forms are more prominent and widely used in SNS and live streaming.
@@ -433,11 +433,10 @@ The characteristic of immediate grammar is ``immediate and reflexive selection,'
 \fi
 
 \ifJPN
-ここではプロセス文法モデル全体を見渡すと同時に即時文法と調整文法の関係を示す概念図を示す(図\ref{fig:boundary})。
+ここではプロセス文法モデル全体を見渡すと同時に即時文法と調整文法の関係を示す概念図を示す(図\ref{fig:boundary-j})。
 \else 
   Here, we show a concept diagram that shows the relationship between immediate grammar and adjustive grammar while looking at the entire Process Grammar Model (Figure \ref{fig:boundary}).
 \fi
-
 
 
 \begin{figure}[htb]\centering\small
@@ -512,7 +511,7 @@ The characteristic of immediate grammar is ``immediate and reflexive selection,'
 
 \end{tikzpicture}
 \ifJPN
-\caption{即時文法と調整文法の限界}\label{fig:boundary}
+\caption{即時文法と調整文法の限界}\label{fig:boundary-j}
 \else
 \caption{Boundary between Immediate Grammar and Adjustive Grammar}\label{fig:boundary}
 \fi
@@ -664,10 +663,20 @@ On the other hand, when explaining new words or complex procedures, System 2 is 
   \section{Tasuki-gake/cross-directional Effect}
 \fi
 
+
+\input{tasuki_gake_effect_def.tex}
+
+\ifJPN
+  \TasukiGakeEffectJa
+\else
+  \TasukiGakeEffectEn
+\fi
+
+
 \ifJPN
   \begin{figure}[htb]\centering\small
     \includegraphics[width=0.25\textwidth]{./figures/tasuki-gake01.png}
-    \caption{襷掛け: 和服の袂が作業をする際に邪魔になるので、長い布紐で、背中がクロスになるように袂を手繰り寄せる肩紐の掛け方。}\label{fig:tasuki-gake-picture}
+    \caption{襷掛け: 和服の袂が作業をする際に邪魔になるので、長い布紐で、背中がクロスになるように袂を手繰り寄せる肩紐の掛け方。}\label{fig:tasuki-gake-picture-j}
   \end{figure}
 \else
   \begin{figure}[htb]\centering\small
@@ -681,7 +690,7 @@ On the other hand, when explaining new words or complex procedures, System 2 is 
     \includegraphics[width=0.95\textwidth]{tasuki-gake.pdf}
     \caption{襷掛け効果: プロセス文法における効果の交差的構造。
     日本の伝統的な「たすき掛け」は、前と後ろで左右の紐が交差する形式をとる。これは、即時的な発話が調整的効果を、調整された発話が自然で親しみやすい印象を生むという、効果と使用の関係の「ねじれ」を視覚的に表す比喩である。
-    }\label{fig:tasuki-gake}
+    }\label{fig:tasuki-gake-j}
   \end{figure}
 \else
   \begin{figure}[htb]\centering\small
@@ -700,7 +709,7 @@ Adjustive Expression が訓練や定型化を経て即時に発話されたと�
 一方、Immediate Expression が意図的に小説やインタビュー記事などに組み込まれた場合には、生き生きとした会話的な印象を与える「Natural and Spoken Effect（自然・話しことば的効果）」を発揮する。
 
 このように、発話の時間的性質と、表現の出自が生む効果の間には交差関係（襷掛け）が存在しており、単純な二分法では捉えきれない表現の機能と運用の豊かさを可視化する構造となっている
-(図 \ref{fig:tasuki-gake-picture}, \ref{fig:tasuki-gake})。
+(図 \ref{fig:tasuki-gake-picture-j}, \ref{fig:tasuki-gake-j})。
 
 \else
 
@@ -722,7 +731,6 @@ Conversely, when an Immediate Expression is intentionally employed in written or
 Thus, there is a crossed (tasuki-gake) relationship between the temporal nature of utterance and the effect of expression.
 This structure makes visible the richness of expressive function and practical use that goes beyond a simple binary model.(Figure \ref{fig:tasuki-gake-picture} and \ref{fig:tasuki-gake}).
 \fi
-
 
 \ifJPN
 \section{記述の方法}
@@ -844,13 +852,15 @@ By positioning actual data that mediates both poles as a model, it is possible t
 \else
 \caption{Process grammar model of actual language use}
 \fi
+
 \label{fig:processgrammar}
 \end{figure*}
 
-\begin{table*}[ht]\centering\small
 \ifJPN
+\begin{table*}[ht]\centering\small
 \caption{即時文法と調整文法の特徴}
 \else
+\begin{table*}[ht]\centering\small
 \caption{Characteristics of immediate and adjustment grammars}
 \fi
 \label{tab:characteristics}
@@ -879,7 +889,11 @@ By positioning actual data that mediates both poles as a model, it is possible t
 \textbf{目的} 
   & 即座に情報を伝える。 
   & 誤解を防ぎ、正確性や適切さを確保する。 \\
+\end{tabular}
+\end{table*}
+
 \else
+
   \begin{tabular}{p{32mm}p{53mm}p{60mm}}\noalign{\hrule height .8pt}
 %  & \textbf{Immediate Grammar} & \textbf{Adjustment Grammar} \\
 
@@ -906,10 +920,10 @@ By positioning actual data that mediates both poles as a model, it is possible t
   \textbf{Purpose} 
   & Immediate information delivery. 
   & Preventing misunderstandings and ensuring accuracy and appropriateness. \\
-\fi
-
 \end{tabular}
 \end{table*}
+\fi
+
 
 
 

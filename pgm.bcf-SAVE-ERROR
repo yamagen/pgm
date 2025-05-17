@@ -2359,4 +2359,25 @@
       <bcf:constraint type="data" datatype="issn">
         <bcf:field>issn</bcf:field>
       </bcf:constraint>
-      <bcf:constraint
+      <bcf:constraint type="data" datatype="ismn">
+        <bcf:field>ismn</bcf:field>
+      </bcf:constraint>
+      <bcf:constraint type="data" datatype="pattern" pattern="(?:sf|sm|sn|pf|pm|pn|pp)">
+        <bcf:field>gender</bcf:field>
+      </bcf:constraint>
+    </bcf:constraints>
+  </bcf:datamodel>
+  <!-- CITATION DATA -->
+  <!-- SECTION 0 -->
+  <bcf:bibdata section="0">
+    <bcf:datasource type="file" datatype="bibtex" glob="false">koten.bib</bcf:datasource>
+  </bcf:bibdata>
+  <bcf:section number="0">
+    <bcf:citekey order="1" intorder="1">Evans2008</bcf:citekey>
+    <bcf:citekey order="1" intorder="2">Kahneman2011-KAHTFA-2</bcf:citekey>
+    <bcf:citekey order="1" intorder="3">squire2009memory</bcf:citekey>
+    <bcf:citekey order="2" intorder="1">sakakura1975ae</bcf:citekey>
+    <bcf:citekey order="3" intorder="1">komatu2003ae</bcf:citekey>
+    <bcf:citekey order="4" intorder="1">kondo2005be</bcf:citekey>
+    <bcf:citekey order="5" intorder="1">10.3389/fpsyg.2019.03008</bcf:citekey>
+    <bcf:citekey order="6" intorder="1">Evans2008</bcf:citekey>
