@@ -132,7 +132,7 @@
 
 ## 4. DAGを用いた対話感情認識モデル（DAG-ERC）
 
-Shenら（2021）は、対話における感情認識のためのモデル「DAG-ERC（Directed Acyclic Graph Network for Conversational Emotion Recognition）」を提案しています。このモデルでは、発話間の関係性をDAG構造で表現し、文脈情報を効果的に捉えることを可能にしています。実験結果からも、DAG構造が感情認識タスクにおいて有効であることが示されています。 ([arXiv][4])
+Shenら（2021）は、対話における感情認識のためのモデル「DAG-ERC（Directed Acyclic Graph Network for Conversational Emotion Recognition）」を提案している。このモデルでは、発話間の関係性をDAG構造で表現し、文脈情報を効果的に捉えることを可能にしています。実験結果からも、DAG構造が感情認識タスクにおいて有効であることが示されている。 ([arXiv][4])
 
 ---
 
