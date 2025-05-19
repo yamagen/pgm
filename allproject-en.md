@@ -1,4 +1,4 @@
-# All Projects Overview – Updated Edition (English Version)
+# All Projects Overview – Updated Edition
 
 ## General Overview
 
@@ -23,6 +23,14 @@ Glossary abbreviations (LGR-compliant) and nonLGR abbreviations (Japanese-specif
 ## PGM: Process Grammar Model
 
 The Process Grammar Model conceptualizes speech generation along two axes: immediacy and adjustivity. It incorporates the Tasuki-gake Effect and context-based usage conditions. Formalizations are developed both descriptively and mathematically.
+
+## Stance First Theory
+
+Stance First Theory is proposed as the central framework on the side of immediate grammar within the Process Grammar Model. It emphasizes the primacy of stance—the psychological attitude or affective orientation that precedes meaning or syntactic structure. Based on Du Bois's theory of the “Stance Triangle,” this model applies a triple+extension format (category, stance, word) to AEAD entries, providing a structural foundation for semantic description.
+
+## Phrase Gloss Method
+
+Phrase Gloss Method, meanwhile, supports a three-layered translation framework consisting of literal translation, phrase gloss, and natural translation. Unlike traditional word-level glossing, it focuses on phrasal units, thereby correcting mismatches between word order and meaning segments. It enhances the inclusiveness of syntactic-semantic structure and is currently being systematically implemented in the translations of Ise Monogatari and Tosa Nikki.
 
 ## Tool Development: gloss-linter, k2g, gloss-rewriter
 

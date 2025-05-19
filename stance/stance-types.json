@@ -1,0 +1,45 @@
+{
+  "stance-types": [
+    {
+      "category-ja": "感情的態度",
+      "category-en": "Emotional Stance",
+      "stances": [
+        { "ja": "喜び", "en": "joy" },
+        { "ja": "悲しみ", "en": "sadness" },
+        { "ja": "驚き", "en": "surprise" },
+        { "ja": "怒り", "en": "anger" },
+        { "ja": "恐れ", "en": "fear" }
+      ]
+    },
+    {
+      "category-ja": "認知的態度",
+      "category-en": "Cognitive Stance",
+      "stances": [
+        { "ja": "確信", "en": "certainty" },
+        { "ja": "疑念", "en": "doubt" },
+        { "ja": "思い出し", "en": "recall" },
+        { "ja": "迷い", "en": "hesitation" }
+      ]
+    },
+    {
+      "category-ja": "対人的態度",
+      "category-en": "Interpersonal Stance",
+      "stances": [
+        { "ja": "親密", "en": "intimacy" },
+        { "ja": "距離", "en": "distance" },
+        { "ja": "共感", "en": "empathy" },
+        { "ja": "拒絶", "en": "rejection" }
+      ]
+    },
+    {
+      "category-ja": "発話的態度",
+      "category-en": "Speech Stance",
+      "stances": [
+        { "ja": "ためらい", "en": "hesitation" },
+        { "ja": "遠回し", "en": "indirectness" },
+        { "ja": "保留", "en": "reservation" },
+        { "ja": "強調", "en": "emphasis" }
+      ]
+    }
+  ]
+}

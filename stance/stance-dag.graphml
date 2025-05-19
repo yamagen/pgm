@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d0" for="node" attr.name="type" attr.type="string"/>
+<graph edgedefault="directed"><node id="Emotional Stance">
+  <data key="d0">category</data>
+</node>
+<node id="joy">
+  <data key="d0">stance</data>
+</node>
+<node id="delight">
+  <data key="d0">word</data>
+</node>
+<node id="glad">
+  <data key="d0">word</data>
+</node>
+<node id="happiness">
+  <data key="d0">word</data>
+</node>
+<node id="sadness">
+  <data key="d0">stance</data>
+</node>
+<node id="sorrow">
+  <data key="d0">word</data>
+</node>
+<node id="regret">
+  <data key="d0">word</data>
+</node>
+<node id="Cognitive Stance">
+  <data key="d0">category</data>
+</node>
+<node id="certainty">
+  <data key="d0">stance</data>
+</node>
+<node id="know">
+  <data key="d0">word</data>
+</node>
+<node id="believe">
+  <data key="d0">word</data>
+</node>
+<node id="doubt">
+  <data key="d0">stance</data>
+</node>
+<node id="wonder">
+  <data key="d0">word</data>
+</node>
+<node id="hesitate">
+  <data key="d0">word</data>
+</node>
+<node id="Speech Stance">
+  <data key="d0">category</data>
+</node>
+<node id="hesitation">
+  <data key="d0">stance</data>
+</node>
+<node id="um">
+  <data key="d0">word</data>
+</node>
+<node id="well">
+  <data key="d0">word</data>
+</node>
+<edge source="Emotional Stance" target="joy"/>
+<edge source="Emotional Stance" target="sadness"/>
+<edge source="joy" target="delight"/>
+<edge source="joy" target="glad"/>
+<edge source="joy" target="happiness"/>
+<edge source="sadness" target="sorrow"/>
+<edge source="sadness" target="regret"/>
+<edge source="Cognitive Stance" target="certainty"/>
+<edge source="Cognitive Stance" target="doubt"/>
+<edge source="certainty" target="know"/>
+<edge source="certainty" target="believe"/>
+<edge source="doubt" target="wonder"/>
+<edge source="doubt" target="hesitate"/>
+<edge source="Speech Stance" target="hesitation"/>
+<edge source="hesitation" target="um"/>
+<edge source="hesitation" target="well"/>
+<edge source="hesitation" target="hesitate"/>
+</graph></graphml>
