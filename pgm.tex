@@ -239,7 +239,6 @@ Error-prone& ``It'll probably be fine!'' & Reliable& ``I've verified it with mul
 \fi
 \end{table}
 
-
 \ifJPN
 プロセス文法モデルは、二重過程理論に言われる「システム1（速い思考）とシステム2（遅い思考）」の枠組みに類似する。しかし、本モデルは単なる応用ではなく、即時性と調整性に焦点を当てた独自の視点を持つ\autocite{Evans2008, Kahneman2011-KAHTFA-2, squire2009memory}。
 \else
@@ -259,7 +258,6 @@ The Process Grammar Model is similar to the framework of ``System 1 (fast thinki
 In traditional linguistics, it has been said that ``spoken language has high immediacy and written language is revisable.'' However, in SNS and live streaming, the situation of ``speaking while writing'' is increasing, and it cannot be explained by a simple binary opposition.
 This study proposes the name ``Process Grammar Model'' as a framework to explain the mechanism of language use, rather than calling surface acts as language forms, to organize such phenomena.
 \fi
-
 
 \ifJPN
   \subsection{節連接と継ぎ足し構文}
@@ -377,10 +375,16 @@ Here, to succinctly show the characteristics of immediate grammar and adjustive 
 \fi
 
 \ifJPN
+即時文法は、リアルタイムで言語を生成する動的プロセスとして形式化される。このモデルは、入力（状況や文脈）に基づいて即時的に適切な出力を決定するシステムとして記述される。
+\else
+Immediate grammar is formalized as a dynamic process of generating language in real-time. This model is described as a system that determines appropriate output immediately based on input (situation and context).
+\fi
+
+\ifJPN
   \begin{description}
-   \item[特徴:] 瞬時の発話、省略が多い、文脈依存、リアルタイム処理
-\item[例:] 「どうですか、味？」「あ、見て！あれ」「あぶない」「普通が一番」
-\item[適用場面:] 日常会話、あいづち、緊急時の発話
+    \item[特徴:] 瞬時の発話、省略が多い、文脈依存、リアルタイム処理
+    \item[例:] 「どうですか、味？」「あ、見て！あれ」「あぶない」「普通が一番」
+    \item[適用場面:] 日常会話、あいづち、緊急時の発話
   \end{description}
 \else
   \begin{description}
@@ -389,6 +393,140 @@ Here, to succinctly show the characteristics of immediate grammar and adjustive 
     \item[Application:] Everyday conversation, interjections, emergency speech
   \end{description}
 \fi
+
+
+\ifJPN
+\subsubsection{基本モデル}
+\else
+\subsubsection{Basic Model}
+
+\ifJPN
+プロセス文法における発話生成の関数型記法で説明すると、即時文法は以下の関数で定義される。
+\else
+In the Process Grammar Model, immediate grammar is defined by the following function in functional notation.
+\fi
+
+\[
+  f_{\text{IG}} : (C, M, T) \to O
+\]
+
+\ifJPN
+ただし、\( C \) はコンテキスト（状況、文脈）を表し、話し手と聞き手の関係や発話の場面、視覚的情報などが含まれる。\( M \) は言語的知識（語彙や文法構造）を指し、母語話者が持つ即時的な文法的規則を含む。\( T \) は時間的制約（リアルタイム処理）を表し、発話が遅延なく生成される条件を示す。\( O \) は出力（生成された言語表現）を意味し、実際の発話や書きことばが含まれる。即時文法は、入力 \((C, M, T)\) に基づき、リアルタイムで最適な言語表現 \( O \) を決定するプロセスである。
+\else
+Here, \( C \) represents the context (situation, background), which includes the relationship between the speaker and listener, the setting of the utterance, and visual information. \( M \) refers to linguistic knowledge (vocabulary and grammatical structures), including the immediate grammatical rules possessed by native speakers. \( T \) represents temporal constraints (real-time processing), indicating conditions under which utterances are generated without delay. \( O \) signifies output (generated language expression), encompassing actual speech or written language. Immediate grammar is a process that determines the optimal language expression \( O \) in real-time based on input \((C, M, T)\).
+\fi
+
+\ifJPN
+\subsubsection{即時性の条件}
+\else
+  \subsubsection{Condition of Immediacy}
+\fi
+
+\ifJPN
+即時文法の中核は「即時性」であり、次の条件で定義される。
+\else
+The core of immediate grammar is ``immediacy,'' defined by the following condition.
+\fi
+
+\[
+  t_{pr} \leq t_{th}
+\]
+
+\ifJPN
+ただし、
+\( t_{pr} \)は言語生成の処理時間、
+\( t_{th} \)は即時性を満たすための閾値（一般に短時間）を表す。
+\( t_{pr} \) が \( t_{th} \) を超える場合、そのプロセスは即時文法に属さない。
+\else
+  Here, \( t_{pr} \) represents the processing time for language generation, and \( t_{th} \) is the threshold for immediacy (generally a short duration). If \( t_{pr} \) exceeds \( t_{th} \), the process does not belong to immediate grammar.
+\fi  
+
+\ifJPN
+\subsubsection{動的適応性}
+\else
+\subsubsection{Dynamic Adaptability}
+\fi
+
+\ifJPN
+即時文法は、入力の変化に応じて適応的に出力を変更する必要がある。この動的適応性は、次の最適化問題として表される。
+\else
+Immediate grammar must adaptively change output in response to changes in input. This dynamic adaptability is expressed as the following optimization problem.
+\fi
+
+\[
+\arg\max_{O} U(O \mid C, M, T)
+\]
+
+\ifJPN
+ただし、\( U(O \mid C, M, T) \) は出力 \( O \) の適切性を示すユーティリティ関数である。目標は、文脈 \( C \)、言語知識 \( M \)、時間的制約 \( T \) に基づき、最適な出力 \( O \) を生成することである。
+\else
+Here, \( U(O \mid C, M, T) \) is a utility function indicating the appropriateness of output \( O \). The goal is to generate the optimal output \( O \) based on context \( C \), linguistic knowledge \( M \), and temporal constraints \( T \).
+\fi
+
+\ifJPN
+\subsubsection{連続性の表現}
+\else
+\subsubsection{Representation of Continuity}
+\fi
+
+\ifJPN
+即時文法は離散的な生成ではなく、連続的なプロセスとして捉えられる。この連続性は、状況がわずかに変化したときに出力も滑らかに変化するという特性として表される。この連続性は、動的変化への即応として機能し、環境や文脈の変化に対してリアルタイムで適応することを意味する。
+\else
+Immediate grammar is not viewed as discrete generation but as a continuous process. This continuity is expressed as the characteristic that output changes smoothly when the situation changes slightly. This continuity functions as an immediate response to dynamic changes, meaning it adapts in real-time to changes in the environment or context.
+\fi
+
+\[
+\frac{\partial O}{\partial C}, \quad \frac{\partial O}{\partial T} \neq 0
+\]
+
+\ifJPN
+ここで使われている小文字のデルタ（\( \partial \)）は、偏微分と呼ばれるもので、複数の要素が影響を与える中で、特定の要素だけをわずかに変化させたときに出力がどのように変化するかを示す。この分数の形は、出力 \( O \) がコンテキスト \( C \) や時間 \( T \) の微小な変化に対してどれくらい敏感に反応するか、つまり「変化量の比率」を示している。
+\else
+Here, the lowercase delta (\( \partial \)) represents partial derivatives, which indicate how output changes when a specific element is slightly varied while multiple elements are influencing it. The fractional form shows how sensitive output \( O \) is to small changes in context \( C \) and time \( T \), indicating the ``rate of change''.
+\fi
+
+\ifJPN
+重要なのは、これらの偏微分が0ではない（\( \neq 0 \)）という点である。これは、コンテキスト \( C \) や時間 \( T \) にわずかな変化が生じた場合でも、出力 \( O \) が無反応ではなく、必ず何らかの変化を示すことを意味する。もし偏微分が0であれば、どれほど状況が変わっても出力は変化しないことになるが、即時文法は常に外部の変化に敏感に適応する。この特性は、たとえば話し相手の表情や声のトーンがほんの少し変わっただけで、無意識に反応が変わる現象に似ている。
+\else
+The important point is that these partial derivatives are not zero (\( \neq 0 \)). This means that even if there are slight changes in context \( C \) or time \( T \), output \( O \) will not be unresponsive and will always show some change. If the partial derivatives were zero, it would mean that no matter how much the situation changes, the output would not change. However, immediate grammar always adapts sensitively to external changes. This characteristic is similar to the phenomenon where even a slight change in the facial expression or tone of voice of the conversation partner unconsciously alters the response.
+\fi
+
+\ifJPN
+即時文法は、状況の変化に対して意識的な調整を必要としないほど迅速に反応するプロセスである。確かにプロセス文法モデルは、二重過程理論における人間の行動理解から発想を得ているが、その核心は即時性にあり、二重過程理論で示される無意識的または自動的なプロセスとの共通点は、即時的な反応の結果として生じるにすぎない。
+\else
+Immediate grammar is a process that responds so quickly to changes in the situation that it does not require conscious adjustments. While the Process Grammar Model is inspired by human behavioral understanding in dual process theory, its core lies in immediacy, and the commonalities with unconscious or automatic processes shown in dual process theory are merely results of immediate responses.
+\fi
+
+\ifJPN
+一方、調整文法における連続性は、即応性ではなく、思考（熟考）レベルでの連続性として現れる。これは、意識的な判断や選択の中で、時間をかけて発話内容や形式が調整されていく過程を指す。したがって、即時文法と調整文法は異なる種類の連続性を持ちながら、言語使用において相互に補完的な役割を果たしている。
+\else
+On the other hand, continuity in adjustive grammar appears as continuity at the level of thought (deliberation) rather than immediate responsiveness. This refers to the process where utterance content and form are adjusted over time through conscious judgment and selection. Therefore, while immediate grammar and adjustive grammar have different types of continuity, they play complementary roles in language use.
+\fi
+
+\ifJPN
+\subsubsection{即時文法の全体式}
+\else
+\subsubsection{Overall Expression of Immediate Grammar}
+\fi
+
+\ifJPN
+以上を統合し、即時文法を次の形式で表現する。
+\else
+We can express immediate grammar in the following form by integrating the above elements.
+\fi
+
+\[
+O = f_{\text{IG}}(C, M, T), \quad \text{s.t.} \quad t_{\text{pr}} \leq t_{\text{th}}
+\]
+
+\ifJPN
+ただし、即時文法の出力 \( O \) は、状況 \( C \)、言語的知識 \( M \)、時間的制約 \( T \) に基づく関数 \( f_{\text{IG}} \) によって決定されるが、その処理時間 \( t_{\text{pr}} \) は、許容される時間閾値 \( t_{\text{th}} \) を超えてはならない。  
+ここで、リアルタイムの適応性を最大化しながら、制約条件を満たす出力 \( O \) を生成することが即時文法の本質である。
+\else
+  Here, the output \( O \) of immediate grammar is determined by the function \( f_{\text{IG}} \) based on the situation \( C \), linguistic knowledge \( M \), and temporal constraints \( T \). However, its processing time \( t_{\text{pr}} \) must not exceed the allowable time threshold \( t_{\text{th}} \). The essence of immediate grammar is to generate output \( O \) that satisfies the constraints while maximizing real-time adaptability.
+\fi
+
+%\input{./immediateGrammar.tex}
 
 \ifJPN
   \subsection{調整文法（Adjustive Grammar）}
@@ -410,10 +548,412 @@ Here, to succinctly show the characteristics of immediate grammar and adjustive 
   \end{description}
 \fi
 
+%\input{adjustiveGrammar.tex}
+
 \ifJPN
-\subsection{定義の厳格化}
+調整文法は、即時文法とは異なり、文法形式に対する意識的な調整が行われる。
+最たる例は、形式文法である。
+主語や補語の省略などは行われにくくなる。
+内容や対象を限定するために、形容詞や副詞を前に置くことが多くなる。
+しかしながら、実際の文では、句の単位の語順が絶対的に固定されるわけではない。
 \else
-\subsection{Strict Definition}
+Adjustive grammar differs from immediate grammar in that there is a conscious adjustment of grammatical forms.
+The most typical example is formal grammar.
+It is less likely that subjects and complements are omitted.
+To limit the content or object, adjectives and adverbs are often placed before nouns.
+However, in actual sentences, the order of phrases is not absolutely fixed.
+\fi
+
+\ifJPN
+\subsubsection{調整文法の定義}
+\else
+\subsubsection{Definition of Adjustive Grammar}
+\fi
+
+\ifJPN
+調整文法は、時間的余裕を持って計画され、文脈や目的に基づいて慎重に調整された言語表現を生成するプロセスである。
+調整文法を設計するためには、まず調整とは何かを明確に定義する必要がある。
+調整は、発話の意味や形態を適応・修正する過程として捉える。
+たとえば、発話の明確化や情報の修正、他者との意図の調整を行うことを意味し、「意味の明確化」「誤解の訂正」「文法的な修正」「コミュニケーションのフローの維持」といった要素が含まれる。しかし、内容の追加や説得といった言語の調整を行う際には、調整過剰点(後述)に注意する必要がある。
+\else
+Adjustive grammar is a process that generates language expressions that are carefully adjusted based on context and purpose, planned with temporal flexibility.
+To design adjustive grammar, it is necessary to clearly define what adjustment means.
+Adjustment is understood as the process of adapting and modifying the meaning or form of utterances.
+For example, it refers to clarifying utterances, correcting information, and aligning intentions with others, including elements such as ``clarification of meaning,'' ``correction of misunderstandings,'' ``grammatical corrections,'' and ``maintenance of communication flow.'' However, when making adjustments such as adding content or persuasion, it is important to be cautious of the adjustment excess point (to be discussed later).
+\fi
+
+\ifJPN
+\subsubsection{調整文法の基本構造}
+\else
+\subsubsection{Basic Structure of Adjustive Grammar}
+\fi
+
+\ifJPN
+調整文法の基本的な構造は、以下のような流れに沿ったフォーマットを設計する。
+まず、初期発話について、初期発話における情報の提供（述部で終わる、基本的な事実の提供など）。
+調整の開始としては、初期発話が意図する意味や構造に対する認識の変化があった場合、その修正の開始を示す。
+調整文法は、この「修正」のタイミングを明確に記録し、何が修正されたのかを示す。
+調整の過程（再構築）については、修正が必要な場合、どのような方法で調整が行われたのか（文法的な再構築、情報の追加、発話の再順序化など）を記録する。
+調整後の発話（修正発話）については、調整を経て完成された発話の結果、どのような意味の整合性が保たれたかを示す。
+このような流れを具体的にフォーマット化することで、調整文法がどのように機能するかがより明確になる。
+\else
+The basic structure of adjustive grammar is designed along the following flow:
+First, regarding the initial utterance, it provides information in the initial utterance (ending with a predicate, providing basic facts, etc.).
+As the start of adjustment, if there is a change in recognition regarding the meaning or structure intended by the initial utterance, it indicates the beginning of that correction.
+Adjustive grammar clearly records this timing of ``correction'' and indicates what has been corrected.
+Regarding the process of adjustment (reconstruction), if correction is necessary, it records how the adjustment was made (grammatical reconstruction, addition of information, reordering of utterances, etc.).
+After adjustment, the final utterance (corrected utterance) indicates what kind of semantic consistency was maintained as a result of the completed utterance after adjustment.
+By concretely formatting this flow, it becomes clearer how adjustive grammar functions.
+\fi
+
+\ifJPN
+\subsubsection{調整過程の理論的背景}
+\else
+\subsubsection{Theoretical Background of the Adjustment Process}
+\fi
+
+\ifJPN
+調整文法のフォーマットを理論的に支えるために、調整がどのような認知的・社会的なプロセスであるかを示す必要がある。
+たとえば、調整が「意思疎通の不確実性を減少させる」過程であることや「相手の理解を前提とした適応的な修正である」ことを言語に反映させることが重要である。
+認知的要素として、調整は、発話の意味を相手に正確に伝えたり、誤解を解いたりする認知的なプロセスであるため、その過程を動的であり、調整を行うこと自体は一瞬である。
+社会的要素としては、調整は会話における社会的な適応でもあり、相手との共同作業であるため、対話者間の意図の調整や確認も関係する。
+これらが言語の調整に関わる限りにおいて、調整文法は、認知的・社会的なプロセスを言語表現に反映するためのフォーマットとして機能する。
+しかしながら、内容の調整に関わると、その瞬間から調整過剰点に達する可能性があるため、調整文法の設計には注意が必要である。
+\else
+To theoretically support the format of adjustive grammar, it is necessary to demonstrate what cognitive and social processes adjustment involves.
+For example, it is important to reflect in language that adjustment is a process that ``reduces uncertainty in communication'' and that it is an ``adaptive correction based on the assumption of the listener's understanding.''
+As a cognitive element, adjustment is a cognitive process that accurately conveys the meaning of utterances to the listener or resolves misunderstandings, making the process dynamic, with the act of adjustment itself being instantaneous.
+As a social element, adjustment is also a social adaptation in conversation and a collaborative effort with the listener, involving the alignment and confirmation of intentions between interlocutors.
+As long as these are related to language adjustment, adjustive grammar functions as a format to reflect cognitive and social processes in language expression.
+However, when it comes to content adjustment, there is a possibility of reaching the adjustment excess point from that moment, so care must be taken in the design of adjustive grammar.
+\fi
+
+\ifJPN
+\subsubsection{調整文法のフィードバックループ}
+\else
+  \subsubsection{Feedback Loop in Adjustive Grammar}
+\fi
+
+\ifJPN
+調整文法には、フィードバックループの概念を組み込むことも考えられる。
+発話後にフィードバックを受け、その内容に基づいて修正が行われるプロセスを反映させる。
+これにより、調整が単なる修正の一過程ではなく、動的に発展していく過程であることを示すことができる。
+例えば、発話$\rightarrow$理解$\rightarrow$再確認$\rightarrow$調整という一連の流れにおいて、各段階における発話の変更や修正を記録する。
+\else
+In adjustive grammar, it is also possible to incorporate the concept of a feedback loop.
+This reflects the process of receiving feedback after utterance and making corrections based on that content.
+This allows us to show that adjustment is not just a one-time correction but a dynamically evolving process.
+For example, in a series of flows such as utterance $\rightarrow$ understanding $\rightarrow$ re-confirmation $\rightarrow$ adjustment, we record changes or corrections to utterances at each stage.
+\fi
+
+\ifJPN
+\subsubsection{調整文法の具体例}
+\else
+\subsubsection{Specific Examples of Adjustive Grammar}
+\fi
+
+\ifJPN
+例えば、ニュースの原稿では述部で終わるという単純なルールがある一方、調整文法ではその後に追加的な情報や修正が行われるケースがある。
+この場合、調整文法では以下のような構造を取ることが考える。
+初期発話には「地震が発生した」という事実が述べられる。
+調整の開始時では、「...震源地は日本の東部である」という情報が追加される。
+調整の過程として、情報追加による意味の明確化が記載される。
+調整後の発話として「地震が発生されました。震源地は日本の東部であり、マグニチュードは6.5と予測されています」という修正発話が生成される。
+\else
+For example, while there is a simple rule in news scripts that ends with a predicate, in adjustive grammar, there are cases where additional information or corrections are made afterward.
+In this case, the following structure can be considered in adjustive grammar:
+The initial utterance states the fact that ``an earthquake has occurred.''
+At the start of adjustment, additional information such as ``the epicenter is in eastern Japan'' is added.
+The process of adjustment records the clarification of meaning through the addition of information.
+The adjusted utterance generated afterward is ``An earthquake has occurred. The epicenter is in eastern Japan, and the magnitude is predicted to be 6.5.''
+\fi
+
+\ifJPN
+\subsubsection{調整文法のルール設計}
+\else
+  \subsubsection{Rule Design for Adjustive Grammar}
+\fi
+
+\ifJPN
+修正ルールとしては、調整を行うタイミングや方法を定義（情報追加、言い換え、確認質問など）。
+変更の種類として意味の修正、語順の変更、文法構造の修正などを記述する。
+このように、調整文法のフォーマットは、理論的な背景に基づいて「適応的修正」の過程を明確に表現することが重要であり、各段階の具体的な記述方法、その過程における動的な変化の記述を一律に行うことが重要である。
+\else
+As for modification rules, it is important to define the timing and methods for making adjustments (such as adding information, rephrasing, or confirmation questions).
+Types of changes include semantic corrections, changes in word order, and modifications to grammatical structures.
+Thus, the format of adjustive grammar is crucial for clearly expressing the process of ``adaptive correction'' based on theoretical backgrounds, and it is important to uniformly describe specific methods for each stage and the dynamic changes in that process.
+\fi
+
+\ifJPN
+\subsubsection{基本モデル}
+\else
+  \subsubsection{Basic Model}
+\fi
+
+\ifJPN
+調整文法は以下の関数として定義される。
+\else
+Adjustive grammar is defined by the following function.
+\fi
+
+\[
+f_{\text{AG}} : (C, M, P, T) \to O
+\]
+
+\ifJPN
+ただし、\( C \) はコンテキスト（状況や文脈）を表し、話題、聞き手の背景知識、社会的関係などが含まれる。\( M \) は言語的知識（語彙、文法構造）を指し、書き言葉特有の構文や表現選択が挙げられる。\( P \) は計画（目的や調整戦略）を意味し、発話の意図（説得、説明）やスタイル（フォーマル、カジュアル）などが含まれる。\( T \) は時間的余裕を表し、これが大きいほど調整可能な幅が広がる。最後に、\( O \) は出力（生成された言語表現）を意味し、精緻化された発話や推敲された文章が含まれる。
+\else
+Here, \( C \) represents context (situation and background), which includes topics, the listener's background knowledge, and social relationships. \( M \) refers to linguistic knowledge (vocabulary, grammatical structures), including syntax and expression choices specific to written language. \( P \) signifies planning (purpose and adjustment strategies), encompassing the intention of utterances (persuasion, explanation) and style (formal, casual). \( T \) represents temporal flexibility, indicating that the larger it is, the wider the scope for adjustment. Finally, \( O \) signifies output (generated language expression), including refined utterances or polished texts.
+\fi
+
+\ifJPN
+\subsubsection{計画性の条件}
+\else
+\subsubsection{Condition of Planning}
+\fi
+
+\ifJPN
+調整文法では、発話計画が重要な要素です。計画の具体性は次の関数で表される。
+\else
+In adjustive grammar, the utterance plan is an important element. The specificity of the plan is expressed by the following function.
+\fi
+
+\[
+P = g(C, M)
+\]
+
+\ifJPN
+ただし、
+\( g \)はコンテキスト \( C \) と言語知識 \( M \) に基づいて計画を生成する関数である。
+計画 \( P \) が生成されることで、調整された言語表現が可能になる。
+\else
+Here, \( g \) is a function that generates plans based on context \( C \) and linguistic knowledge \( M \).
+The generation of plan \( P \) enables the production of adjusted language expressions.
+\fi
+
+\ifJPN
+\subsubsection{時間的余裕}
+\else
+\subsubsection{Temporal Flexibility}
+\fi
+
+\ifJPN
+調整文法では、時間的余裕 \( T \) が制約ではなく、生成の質を高める要因として機能する。
+このため、処理時間 \( t_{\text{pr}} \) は次の条件を満たす必要がある。
+\else
+In adjustive grammar, temporal flexibility \( T \) functions not as a constraint but as a factor that enhances the quality of generation.
+Therefore, the processing time \( t_{\text{pr}} \) must satisfy the following condition.
+\fi
+
+\[
+t_{\text{pr}} > t_{\text{th}}
+\]
+
+\ifJPN
+ただし、
+\( t_{\text{th}} \)は、即時文法に必要な処理時間の閾値で、
+時間的余裕が多いほど、調整の精度や深度が増す。
+\else
+  Here, \( t_{\text{th}} \) is the threshold for processing time required for immediate grammar, and the more temporal flexibility there is, the greater the accuracy and depth of adjustment.
+\fi
+
+\ifJPN
+\subsubsection{調整の最適化}
+\else
+\subsubsection{Optimization of Adjustment}
+\fi
+
+\ifJPN
+調整文法では、出力 \( O \) を計画 \( P \) に基づいて最適化する。
+この最適化は以下の式で表わせる。
+\else
+In adjustive grammar, output \( O \) is optimized based on plan \( P \).
+This optimization can be expressed by the following equation.
+\fi
+
+\[
+\arg\max_{O} U(O \mid C, M, P, T)
+\]
+
+\ifJPN
+\( U(O \mid C, M, P, T) \): 出力 \( O \) の適切性や目的達成度を表すユーティリティ関数。
+\else
+\( U(O \mid C, M, P, T) \): Utility function representing the appropriateness or achievement of purpose of output \( O \).
+\fi
+
+\ifJPN
+\subsubsection{連続性の表現}
+\else
+\subsubsection{Representation of Continuity}
+\fi
+
+\ifJPN
+調整文法では、コンテキストや計画に応じて連続的な調整が行われる。
+この連続性を以下の微分式で示す。
+\else
+In adjustive grammar, continuous adjustments are made according to context and plan.
+This continuity is shown by the following differential equations.
+\fi
+
+\[
+\frac{\partial O}{\partial C}, \frac{\partial O}{\partial P} \neq 0
+\]
+
+\ifJPN
+ただし、
+\( \frac{\partial O}{\partial C} \)は、文脈変化に対する調整の感度、
+\( \frac{\partial O}{\partial P} \)は、計画変更に対する調整の感度である。
+\else
+Here, \( \frac{\partial O}{\partial C} \) represents the sensitivity of adjustment to changes in context, and \( \frac{\partial O}{\partial P} \) represents the sensitivity of adjustment to changes in plan.
+\fi
+
+\ifJPN
+\subsubsection{調整文法の全体式}
+\else
+\subsubsection{Overall Expression of Adjustive Grammar}
+\fi
+
+\ifJPN
+調整文法の全体式は次のように記述される。
+\else
+The overall expression of adjustive grammar is described as follows.
+\fi
+
+\[
+O = f_{\text{AG}}(C, M, P, T) \quad \text{s.t.} \quad t_{\text{pr}} > t_{\text{th}}
+\]
+
+\ifJPN
+ここで、調整文法の目的は、計画や文脈に基づいて、時間的余裕を最大限に活用した精緻化された出力 \( O \) を生成することである。
+\else
+Here, the purpose of adjustive grammar is to generate refined output \( O \) that maximizes temporal flexibility based on plans and context.
+\fi
+
+\ifJPN
+\subsubsection{調整過剰点あるいは調整の収束}
+\else
+\subsubsection{Adjustment Excess Point or Convergence of Adjustment}
+\fi
+
+\ifJPN
+言語の使用において、話者や書き手は適切な表現を選び、発話や文章を調整する。この調整のプロセスは、単なる発話の修正ではなく、伝達の効果を最大化するための最適化である。しかし、調整には限界があり、一定の閾値を超えると、伝達の効果が向上するのではなく、むしろ低下する。この閾値を\textbf{調整過剰点（over-adjustment point）}と呼ぶ。調整過剰点を超えた場合、過度な説明による冗長性の増大や、情報の過多による内容の変質が生じ、結果として意図した伝達が妨げられる。
+\else
+  In language use, speakers and writers select appropriate expressions and adjust their utterances or texts. This adjustment process is not merely a correction of utterances but an optimization to maximize the effectiveness of communication. However, there are limits to adjustment, and exceeding a certain threshold does not enhance the effectiveness of communication but rather diminishes it. This threshold is referred to as the \textbf{adjustment excess point}. When the adjustment excess point is exceeded, excessive explanations lead to increased redundancy, and an overload of information results in a distortion of content, ultimately hindering the intended communication.
+\fi
+
+\ifJPN
+調整文法の最適化を考える際、この調整過剰点を組み込んだ数理モデルを検討する。
+ここでは、調整の度合いを定量化し、調整過剰点を閾値とするモデルを構築する。
+\else
+When considering the optimization of adjustive grammar, we examine a mathematical model that incorporates the adjustment excess point.
+Here, we construct a model that quantifies the degree of adjustment and uses the adjustment excess point as a threshold.
+\fi
+
+\ifJPN
+調整文法では、発話または文章 $O$ を、状況 $C$、言語知識 $M$、目的 $P$ 、時間 $T$ に基づいて最適化する関数として表す。
+\else
+In adjustive grammar, the utterance or text \( O \) is expressed as a function optimized based on situation \( C \), linguistic knowledge \( M \), purpose \( P \), and time \( T \).
+\fi
+
+\begin{equation}
+    O = f_{\text{AG}}(C, M, P, T)
+\end{equation}
+
+\ifJPN
+ただし、調整の度合い $c_{\text{adj}}$ は、調整過剰点 $c_{\text{max}}$ を超えない範囲でなければならない。
+\else
+  However, the degree of adjustment \( c_{\text{adj}} \) must not exceed the adjustment excess point \( c_{\text{max}} \).
+\fi
+
+\begin{equation}
+    c_{\text{adj}} \leq c_{\text{max}}
+\end{equation}
+
+\ifJPN
+ここで、
+$f_{\text{AG}}(C, M, T)$ は、状況・言語知識・目的に基づく最適化関数。
+$c_{\text{adj}}$ は、調整の度合いを示す。
+$c_{\text{max}}$ は、調整過剰点（飽和点）を示す閾値であり、これを超えると調整が内容そのものを変質させてしまう。
+この条件のもとで、調整文法の最適な適用範囲を決定する。
+\else
+  Here, \( f_{\text{AG}}(C, M, T) \) is the optimization function based on situation, linguistic knowledge, and purpose.
+  \( c_{\text{adj}} \) indicates the degree of adjustment.
+  \( c_{\text{max}} \) is the threshold indicating the adjustment excess point (saturation point), beyond which the adjustment alters the content itself.
+  Under this condition, we determine the optimal application range of adjustive grammar.
+\fi
+
+\ifJPN
+\subsubsection{調整過剰点の具体例と解釈}
+\else
+  \subsubsection{Specific Examples and Interpretation of Adjustment Excess Point}
+\fi
+
+\ifJPN
+調整過剰点を超えることで、言語表現の調整が\textbf{「言語の問題」を逸脱し、「内容の問題」に変わる}点とする。以下に具体例を示す。
+\else
+  By exceeding the adjustment excess point, the adjustment of language expression \textbf{deviates from "language issues" and becomes "content issues."} Below are specific examples.
+\fi
+
+\ifJPN
+\subsubsection*{母親が娘に宛てた手紙}
+\else
+  \subsubsection*{Letter from a Mother to Her Daughter}
+\fi
+\ifJPN
+母の想いや願い、心配が込められる。しかし、細かいことを何度も繰り返し書くと、娘にとっては負担になり、むしろ読まないほうがよいとすら思われるかもしれない。この場合、適切な調整を超えてしまい、調整過剰点に達していることになる。
+\else
+  The letter is filled with the mother's feelings, wishes, and concerns. However, if she repeatedly writes about trivial matters, it may become a burden for the daughter, who might even think it better not to read it at all. In this case, it has exceeded appropriate adjustment and reached the adjustment excess point.
+\fi
+
+\ifJPN
+\subsubsection*{演劇のシナリオ}
+\else
+  \subsubsection*{Theater Script}
+\fi
+
+\ifJPN
+観客の理解、役者の発話のしやすさ、内容の伝達のバランスを考慮して台詞が書かれる。しかし、観客に理解しやすくしようとしすぎると、すべてを言葉で説明してしまい、演劇の芸術性が損なわれる。ここでも、調整過剰点を超えることで、もはや言語の問題ではなく、演劇の本質に関わる問題へと変化してしまう。
+\else
+  The script is written considering the audience's understanding, ease of speech for the actors, and the balance of content delivery. However, if it tries too hard to make it understandable for the audience, it ends up explaining everything in words, which undermines the artistic quality of the theater. Here too, exceeding the adjustment excess point transforms the issue from a language problem to one that pertains to the essence of theater.
+\fi
+
+\ifJPN
+\subsubsection*{法律文書}
+\else
+  \subsubsection*{Legal Documents}
+\fi
+\ifJPN
+法律は解釈のブレが生じないように細かく調整されるが、それでも一意の解釈にはならず、最終的には法廷での審議や判決によって決定される。ここでは、言語の調整だけでは問題を解決できず、法律の適用という別の手段に頼らざるを得なくなっている。これは、調整過剰点を超えた典型的な例である。
+\else
+  Laws are finely adjusted to avoid interpretative discrepancies, but they still do not lead to a unique interpretation, ultimately being decided through court discussions and judgments. Here, language adjustment alone cannot resolve the issue, and it becomes necessary to rely on another means of legal application. This is a typical example of exceeding the adjustment excess point.
+\fi
+
+\ifJPN
+\subsubsection{調整過剰点を考慮した最適化の必要性}
+\else
+  \subsubsection{Need for Optimization Considering Adjustment Excess Point}
+\fi
+
+\ifJPN
+調整文法を適用する際、調整過剰点を考慮することで、言語表現の最適化を適切な範囲で行うことができる。もし調整過剰点を無視して調整を続けると、発話や文章が本来の目的を逸脱し、むしろ伝達の効果を損なってしまう。
+調整過剰点を適切に設定することで、調整文法は「言語の枠内での最適化」にとどまり、内容に踏み込みすぎることを防ぐことができる。この点で、調整文法のルールは、即時文法と同様に体系化されるべきである。
+\else
+  By considering the adjustment excess point when applying adjustive grammar, it is possible to optimize language expression within an appropriate range. If adjustments continue without regard to the adjustment excess point, utterances or texts may deviate from their original purpose and actually undermine the effectiveness of communication.
+By appropriately setting the adjustment excess point, adjustive grammar can remain within the bounds of "optimization within language" and prevent overstepping into content issues. In this regard, the rules of adjustive grammar should be systematized similarly to immediate grammar.
+\fi
+
+\ifJPN
+調整文法は、言語表現の最適化を目的とするが、調整過剰点を超えると、言語の問題を逸脱し、内容の問題に変わる。
+したがって、調整文法を適用する際には、調整過剰点を閾値とし、その手前で調整を止める必要がある。このモデルを導入することで、調整文法の適用範囲を明確にし、言語表現の最適化を適切な範囲で行うことができる。
+\else
+  Adjustive grammar aims to optimize language expression, but exceeding the adjustment excess point deviates from language issues and becomes a content issue.
+  Therefore, when applying adjustive grammar, it is necessary to set the adjustment excess point as a threshold and stop adjustments before reaching it. By introducing this model, we can clarify the application range of adjustive grammar and optimize language expression within an appropriate scope.
+\fi
+
+\ifJPN
+\subsubsection{定義の厳格化}
+\else
+\subsubsection{Strict Definition}
 \fi
 
 \ifJPN

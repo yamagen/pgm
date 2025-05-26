@@ -22,19 +22,19 @@ glossary-abbreviations（LGR準拠）とnonLGR-abbreviations（日本語独自�
 
 ## PGM: プロセス文法モデル
 
-Process Grammar Modelは、即時文法と調整文法の2軸による発話生成モデルであり、Tasuki-gake Effect や使用文脈の選択条件なども理論に含まれる。記述は文章と数式の両形式で進行中。
-
-## スタンス先行理論
-
 Stance First Theory（スタンス先行理論）は、プロセス文法モデルにおける即時文法側の中心的枠組みとして提唱され、語の意味や構文に先立つ心理的態度（スタンス）の表出を第一義とする。Du Bois の「スタンストライアングル」理論を踏まえ、AEADの各エントリに triple+extension（category, stance, word）形式を適用し、意味記述の構造基盤とする。
 
-## Phrase Gloss Method
+また Phrase Gloss Method は、逐語訳・phrase gloss・自然訳の三層構造記述を支える技術であり、語単位ではなく句単位で gloss を構成することにより、語順と意味単位のズレを補正し、構文的意味の包摂性を高める記述法として位置づけられる。現在、伊勢物語および土佐日記の翻訳において体系的に実装されている。
 
-Phrase Gloss Method は、逐語訳・phrase gloss・自然訳の三層構造記述を支える技術であり、語単位ではなく句単位で gloss を構成することにより、語順と意味単位のズレを補正し、構文的意味の包摂性を高める記述法として位置づけられる。現在、伊勢物語および土佐日記の翻訳において体系的に実装されている。
+Process Grammar Modelは、即時文法と調整文法の2軸による発話生成モデルであり、Tasuki-gake Effect や使用文脈の選択条件なども理論に含まれる。記述は文章と数式の両形式で進行中。
 
 ## ツール群: gloss-linter, k2g, gloss-rewriter
 
 k2g（古語形態素解析）、gloss-rewriter（略語変換）、gloss-linter（gloss整合性検証）など、JSON形式のgloss記述を支援・管理するユーティリティを自作・運用中。今後GUIや統合CLIの開発も視野に入れている。
+
+## CW: Cooccurrence Pattern Weighting
+
+cw は、和歌や詩的表現における任意2語の共起パターンに重みづけを行い、高重みパターンを特定・出力する前処理ツールである。出力は共起グラフの視覚化や、詩的表現の再圧縮生成、類型分析に利用される。特に31音圧縮による和歌生成に向けた基礎データ整備に用いられており、今後は AEAD語彙との接続や semantic network 構築への応用が予定されている。
 
 ## 今後の展望とリリース計画
 
