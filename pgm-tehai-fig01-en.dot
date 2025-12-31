@@ -1,0 +1,21 @@
+digraph ImmediateGrammar {
+  rankdir=LR;
+  node [shape=box, style=rounded, fontname="Helvetica", fontsize=10];
+
+
+//  A [label="A 行為の列挙\n食べて / 飲んで"];//Japanese
+  A [label="A Enumeration of actions\neat / drink"]; //English
+//  B [label="B 接続助詞\nて"];
+  B [label="B Conjunctive particle\nte"];
+//  C [label="C 間投詞\nはい"];
+  C [label="C Interjection\nhai"];
+//  D [label="D 未完了\n話者権保持"];
+  D [label="D Incompletion\nspeaker's right retained"];
+//  E [label="E 相手への委譲\n（同じだよね？）"];
+  E [label="E Delegation to the partner\n(same, right?)"];
+
+  A -> B;
+  B -> C;
+  C -> D;
+  D -> E;
+}

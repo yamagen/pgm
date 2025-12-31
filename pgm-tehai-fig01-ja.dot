@@ -1,0 +1,15 @@
+digraph ImmediateGrammar {
+  rankdir=LR;
+  node [shape=box, style=rounded, fontname="Helvetica", fontsize=10];
+
+  A [label="A 行為の列挙\n食べて / 飲んで"];
+  B [label="B 接続助詞\nて"];
+  C [label="C 間投詞\nはい"];
+  D [label="D 未完了\n話者権保持"];
+  E [label="E 相手への委譲\n（同じだよね？）"];
+
+  A -> B;
+  B -> C;
+  C -> D;
+  D -> E;
+}

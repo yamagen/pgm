@@ -1,0 +1,93 @@
+
+digraph InteractionWithHeaders_AlignedOrdered {
+  rankdir=TB;
+  fontname="Helvetica";
+  fontsize=10;
+
+  node [
+    shape=box,
+    style="rounded",
+    fontname="Helvetica",
+    fontsize=10
+  ];
+
+  edge [
+    fontname="Helvetica",
+    fontsize=9
+  ];
+
+  /* ===== Top headers (roles) ===== */
+//  H_A [label="送り手", shape=plaintext, fontsize=12, group="B"];
+  H_A [label="Sender", shape=plaintext, fontsize=12, group="B"];
+//  H_I [label="インタラクション\n（即時文法装置）", shape=plaintext, fontsize=12, group="I"];
+  H_I [label="Interaction\n(Immediate Grammar Device)", shape=plaintext, fontsize=12, group="I"];
+//  H_B [label="受け手", shape=plaintext, fontsize=12, group="A"];
+  H_B [label="Receiver", shape=plaintext, fontsize=12, group="A"];
+
+  { rank=same; H_B; H_I; H_A }
+
+  /* Force left-to-right order of headers */
+  H_A -> H_I [style=invis, constraint=false, weight=1000];
+  H_I -> H_B [style=invis, constraint=false, weight=1000];
+
+  /* ===== Sender column ===== */
+//  A1 [label="A1 発話\n食べて、飲んで、", group="B"];
+  A1 [label="A1 Utterance\nEat-te, drink-te,", group="B"];
+//  A2 [label="A2 発話\n...て、はい、", group="B"];
+  A2 [label="A2 Utterance\n...te, hai,", group="B"];
+
+  /* ===== Interaction column ===== */
+//  I1 [label="I1 行為の列挙が提示される", group="I"];
+  I1 [label="I1 Enumeration of actions is presented", group="I"];
+//  I2 [label="I2 未完了が保持される", group="I"];
+  I2 [label="I2 Incompletion is retained", group="I"];
+//  I3 [label="I3 次ターンが誘発される", group="I"];
+  I3 [label="I3 Next turn is elicited", group="I"];
+
+  /* ===== Receiver column ===== */
+//  B1 [label="B1 聞く", group="A"];
+  B1 [label="B1 Listen", group="A"];
+//  B2 [label="B2 認知\n今、自分が話す番", group="A"];
+  B2 [label="B2 Cognition\nNow, it's my turn to speak", group="A"];
+//  B3 [label="B3 反応（成功）\n要約・共感・質問", group="A"];
+  B3 [label="B3 Reaction (Success)\nSummary, empathy, questions", group="A"];
+//  B4 [label="B4 反応（失敗）\n結論要求", group="A"];
+  B4 [label="B4 Reaction (Failure)\nRequest for conclusion", group="A"];
+
+  /* ===== Force header-to-column alignment (invisible) ===== */
+  H_A -> A1 [style=invis];
+  H_I -> I1 [style=invis];
+  H_B -> B1 [style=invis, weight=000];
+
+  /* ===== Row alignment ===== */
+  { rank=same; A1; I1; B1 }
+  { rank=same; A2; I2; B2; B4 }
+  { rank=same; I3; B3 }
+
+  /* Force left-to-right order in each row */
+//  I1 -> B1 [label="提示"];
+  I1 -> B1 [label="Presentation"];
+  I2 -> B2 ;
+//  I3 -> B3 [label="知覚"];
+  I3 -> B3 [label="Perception"];
+
+  /* ===== Time flow (vertical) ===== */
+  A1 -> A2 [constraint=true];
+
+  I1 -> I2 -> I3 [constraint=true];
+  B1 -> B2 [constraint=true];
+  B2 -> B3 [style=invis, constraint=true];
+
+  /* ===== Interaction flow (horizontal) ===== */
+//  A1 -> I1 [label="発話", style=solid];
+  A1 -> I1 [label="Utterance", style=solid];
+//  A2 -> I2 [label="発話", style=solid];
+  A2 -> I2 [label="Utterance", style=solid];
+
+  /* ===== Feedback ===== */
+//  B2 -> B3 [label="連鎖維持", penwidth=2];
+  B2 -> B3 [label="Chain maintenance", penwidth=2];
+//  B2 -> B4 [label="連鎖破綻", style=dashed];
+  B2 -> B4 [label="Chain breakdown", style=dashed];
+
+}
