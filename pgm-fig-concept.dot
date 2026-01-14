@@ -1,0 +1,43 @@
+digraph PGM_Overlap {
+  rankdir=LR;
+  splines=true;
+  nodesep=0.7;
+  ranksep=0.8;
+
+  node [fontsize=12, shape=box];
+
+  // time markers (shared)
+  T0 [label="IG Pre-boundary"];
+  T1 [label="AG Pre-boundary\n(AG begins to intervene)"];
+  T2 [label="IG Post-boundary\n(IG cannot sustain)"];
+  T3 [label="AG Post-boundary\n= Saturation Point"];
+
+  // Put time markers on same rank
+  { rank=same; T0; T1; T2; T3; }
+
+  // IG track
+  IG0 [label="IG active", color=red];
+  IG1 [label="IG weakening", color=red];
+
+  // AG track
+  AG0 [label="AG warming up", color=blue];
+  AG1 [label="AG active", color=blue];
+
+  // Edges: time order
+  T0 -> T1 -> T2 -> T3 [color=gray50];
+
+  // IG timeline (starts at T0, fades after T2)
+  T0 -> IG0 [color=red];
+  IG0 -> T2 [color=red, label="IG operating"];
+  T2 -> IG1 [color=red, style=dashed, label="residual IG"];
+
+  // AG timeline (starts at T1, continues to T3)
+  T1 -> AG0 [color=blue];
+  AG0 -> AG1 [color=blue, label="AG ramps up"];
+  AG1 -> T3 [color=blue, label="AG operating"];
+
+  // Overlap emphasis
+  Overlap [label="Overlap zone:\nIG + AG co-running", shape=ellipse];
+  T1 -> Overlap [style=dotted];
+  T2 -> Overlap [style=dotted];
+}

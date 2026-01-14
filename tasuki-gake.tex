@@ -21,17 +21,23 @@
 \begin{tikzpicture}[node distance=1cm and 2.5cm]
 
   % Central node
-  \node (pgm) at (0,0) [mainnode] {Process Grammar Model\\(Dual Process Grammar)};
+%  \node (pgm) at (0,0) [mainnode] {Process Grammar Model\\(Dual Process Grammar)};
+
+  \node (pgm) at (0,0) [mainnode]{Process Grammar Model\\(Dual Process Grammar)\\Tasuki-gake Effect};
+
+
 
   % Left side: Classical texts
   \node (quick) at (-6,0) [category] {Immediate Utterance};
-  \node (tosa) at (-6,4) [effect] {Adjustive Expression\\(Polite and Public Effect)};
-  \node (ise) at (-6,2) [subnode] {Immediate Grammar\\(Immediate Expression)};
+%  \node (tosa) at (-6,4) [effect] {Adjustive Expression\\(Polite and Public Effect)};
+  \node (tosa) at (-6,4) [effect] {Polite and Public Effect\\(in certain contexts)};
+  \node (ise) at (-6,2) [subnode] {Immediate Grammar\\(producing Immediate Expression)};
 
   % Right side: Deliberate
   \node (deliberate) at (6,0) [category] {Adjustive Utterance};
-  \node (d4e) at (6,4) [effect] {Immediate Expression\\(Natural and Spoken Effect)};
-  \node (aead) at (6,2) [subnode] {Adjustive Grammar\\(Adjustive Expression)};
+%  \node (d4e) at (6,4) [effect] {Immediate Expression\\(Natural and Spoken Effect)};
+  \node (d4e) at (6,4) [effect] {Natural and Spoken Effect\\(in certain contexts)};
+  \node (aead) at (6,2) [subnode] {Adjustive Grammar\\(producing Adjustive Expression)};
 
   % Bottom side: Infrastructure
 %  \node (infra) at (0,-3.5) [mainnode] {Structured Resources\\(JSON, LaTeX, Web)};
