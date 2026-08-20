@@ -1,6 +1,6 @@
 \newif\ifJPN
-\JPNfalse
 \JPNtrue
+\JPNfalse
 
 \ifJPN
   \documentclass[a4paper,xelatex,ja=standard]{bxjsarticle}
@@ -16,6 +16,9 @@
 \addbibresource{koten.bib} % BibTeX ファイルを指定
 \usepackage{tikz}
 \usepackage{version}
+
+\usepackage{enumitem}
+
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{booktabs} % このパッケージを追加
@@ -142,24 +145,24 @@ The feature of this model is to describe the dynamic characteristics of grammar 
 特に、言語には文脈依存性、意味構造、認知プロセスの影響が含まれ、単純な数理モデルでは完全に説明できない。
 それゆえ、言語の数理的記述は、物理的リソースを基盤としつつも、動的な変化や意思決定プロセスを考慮する必要がある。
 たとえば、発話のリアルタイム生成（即時文法） は、決定論的な法則で完全に予測することが困難であるため、相対的に捉え、二項対立のように常に比較すべき対を示す。
-たとえば、意味の曖昧性（例:「娘がいる」はmy daughter なのか、a girl なのか）や、文脈依存性（例:「彼女は彼に会った」は、she met him なのか、he met her なのか）などは、数理的には解決が難しい。
+たとえば、意味の曖昧性（例:「娘がいる」はmy daughter なのか、a girl なのか）や、文脈依存性（例:「それ、やった？」は「もう終わった？」なのか「やったことある？」なのか）などは、数理的には解決が難しい。
 これらの問題点について放置するわけにもいかないし、統計的確率論として扱うわけにもいかない。
 しかしながら、時間軸を考慮した言語の数理モデルは、未解決であったこれらの問題に対して、新たなアプローチを提供する可能性がある。
 たとえば、即時文法であるならば、発話のリアルタイム生成を考慮し、my daughter/a girl という問題は、発話の前後関係によって解決される。
-また、調整文法であるならば、文脈依存性を考慮し、she met him/he met her という曖昧性の問題は、調整の過程によって語句を追加すること解決される。
+また、調整文法であるならば、文脈依存性を考慮し、「それ、やった？」という曖昧性の問題は、「もう終わった？」「やったことある？」のように語句を追加することで解決される。
     \else
-    Language is operated through physical resources (cognitive processes of the brain, speech, symbol manipulation, etc.), making it possible to describe it mathematically.
-However, language is not just a physical system, and each part that describes matter has different properties from the physical quantities described in physics, making mathematical descriptions difficult.
+Language is realized through physical resources (cognitive processes of the brain, speech, symbol manipulation, etc.), making it possible to describe it mathematically.
+However, language is not just a physical system, and the components used to model language differ in nature from the physical quantities used in physics, making mathematical descriptions difficult.
 Physical systems (thermodynamics, electromagnetism, etc.) usually follow deterministic laws.
-On the other hand, language contains non-deterministic elements such as ``immediate grammar'' and ``adjustment grammar.''
+On the other hand, language contains non-deterministic elements such as ``immediate grammar'' and ``adjustive grammar.''
 In particular, language includes context dependency, semantic structure, and cognitive process influences, which cannot be fully explained by simple mathematical models.
 Therefore, a mathematical description of language must consider dynamic changes and decision-making processes while being based on physical resources.
 For example, real-time generation of speech (immediate grammar) is difficult to predict completely with deterministic laws, so it should be relatively understood and always show pairs to be compared like a binary opposition.
-For example, semantic ambiguity (e.g., ``She has a daughter'' is it my daughter or a girl?) and context dependency (e.g., ``She met him'' is it she met him or he met her?) are difficult to resolve mathematically.
+For example, semantic ambiguity (e.g., ``Musume ga iru.'' can mean either ``my daughter'' or ``a girl'') and context dependency (e.g., ``Sore, yatta?'' can mean either ``Have you finished it?'' or ``Have you ever done it?'') are difficult to resolve mathematically.
 These problems cannot be ignored, nor can they be simply addressed by statistical probability theory.
 However, a mathematical model of language that considers the time axis may offer a new approach to these unresolved issues.
 For example, if it is immediate grammar, considering the real-time generation of speech, the problem of my daughter or a girl is resolved by the relationship before and after the speech.
-Also, if it falls under adjustment grammar, considering context dependency, the problem of ambiguity between she met him and he met her is resolved by adding words during the adjustment process.
+Also, if it falls under adjustive grammar, considering context dependency, the ambiguity in ``Sore, yatta?'' can be resolved by adding words during the adjustment process, for example, by specifying whether it means ``Have you finished it?'' or ``Have you ever done it?''
     \fi
 
 \ifJPN
@@ -249,7 +252,7 @@ This study proposes the name ``Process Grammar Model'' as a framework to explain
 「即時文法」はこれまでに研究されてきた言語現象としては節連接が最も近い。
 節連接は、文法的な連続性を示す手法として広く研究されてきた。節連接は、文の構造や意味を維持しながら、複数の節を連結することで、情報の連続性や関係性を表現する。節連接は、即時文法と調整文法の連続体を説明する上で有用な手法である。
 \else
-``Immediate grammar'' is most closely related to the linguistic phenomenon of clause chaining that has been studied to date. Clause chaining has been widely studied as a method to indicate grammatical continuity. By linking multiple clauses while maintaining the structure and meaning of sentences, clause chaining expresses the continuity and relationships of information. Clause chaining is a useful method for explaining the continuum of immediate and adjustment grammars.
+``Immediate grammar'' is most closely related to the linguistic phenomenon of clause chaining that has been studied to date. Clause chaining has been widely studied as a method to indicate grammatical continuity. By linking multiple clauses while maintaining the structure and meaning of sentences, clause chaining expresses the continuity and relationships of information. Clause chaining is a useful method for explaining the continuum of immediate and adjustive grammars.
 \fi
 
 \ifJPN
